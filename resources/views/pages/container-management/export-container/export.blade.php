@@ -7,7 +7,7 @@
 
         body {
             font-family: 'THSarabunNew';
-            font-size: 8pt;
+            font-size: 14pt;
             margin: 0px;
         }
 
@@ -20,9 +20,11 @@
             page-break-inside: auto;
         }
 
-        th,
-        td {
+        th {
             background-color: lightgrey;
+            text-align: center;
+        }
+        td {
             text-align: center;
         }
 

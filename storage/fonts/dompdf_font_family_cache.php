@@ -83,4 +83,12 @@
     'italic' => $fontDir . '/thsarabunnew_italic_442738af2462e516da5bf011b7cca85d',
     'bold_italic' => $fontDir . '/thsarabunnew_bold_italic_4050f1369088afc537d301cda084f956',
   ),
+  'montserrat' => array(
+    '200' => $fontDir . '/montserrat_200_14b92ca4473ed80a13c861abdc1136d7',
+    'normal' => $fontDir . '/montserrat_normal_503690d8de71ed6d6676fa96fff283cc',
+    'bold' => $fontDir . '/montserrat_bold_6f11093f48a8ef4f167d177381bbfa1b',
+  ),
+  'fontawesome' => array(
+    'normal' => $fontDir . '/fontawesome_normal_d726fe9f0eedcde03c194e171054f6d7',
+  ),
 ) ?>

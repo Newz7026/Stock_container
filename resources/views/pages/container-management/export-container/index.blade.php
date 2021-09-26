@@ -7,6 +7,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <form action="{{route('export-pdf')}}" method="get">
+                        @csrf
                         <div class="input-group">
                             <select class="form-select" id="inputGroupSelect04"
                                 aria-label="Example select with button addon" name="id_export" id="id_export">

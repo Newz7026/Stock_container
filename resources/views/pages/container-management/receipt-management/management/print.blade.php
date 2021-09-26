@@ -11,7 +11,6 @@
                             <div class="col-10">
                                 <p class="text-bold">
                                     หจก. บุญดีคอนเทนเนอร์ เซอร์วิส</p>
-
                             </div>
                             <div class="col-2">
                                 <input type="date" class="form-control" id="date"   name="date" >
