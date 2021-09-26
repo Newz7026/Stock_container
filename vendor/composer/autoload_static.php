@@ -32,12 +32,12 @@ class ComposerStaticInite4c3386c369c477fd99f4b3febd374ff
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
+        '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         'a1af1fc0cffb5f61cbaf64dbe030fdb9' => __DIR__ . '/..' . '/laravel/legacy-factories/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
-        '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
-        'e80562809c7194acfc550c34a01dda6b' => __DIR__ . '/..' . '/phattarachai/thaidate/src/function.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
+        'e80562809c7194acfc550c34a01dda6b' => __DIR__ . '/..' . '/phattarachai/thaidate/src/function.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -116,6 +116,7 @@ class ComposerStaticInite4c3386c369c477fd99f4b3febd374ff
         'N' => 
         array (
             'NunoMaduro\\Collision\\' => 21,
+            'Nelisys\\LaravelDompdfThaiFont\\' => 30,
         ),
         'M' => 
         array (
@@ -387,6 +388,10 @@ class ComposerStaticInite4c3386c369c477fd99f4b3febd374ff
         array (
             0 => __DIR__ . '/..' . '/nunomaduro/collision/src',
         ),
+        'Nelisys\\LaravelDompdfThaiFont\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nelisys/laravel-dompdf-thai-font/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -574,6 +579,7 @@ class ComposerStaticInite4c3386c369c477fd99f4b3febd374ff
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ManagementINController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManagementINController.php',
         'App\\Http\\Controllers\\ManagementOUTController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManagementOUTController.php',
+        'App\\Http\\Controllers\\PDFController' => __DIR__ . '/../..' . '/app/Http/Controllers/PDFController.php',
         'App\\Http\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/PageController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Controllers\\RecriptController' => __DIR__ . '/../..' . '/app/Http/Controllers/RecriptController.php',
@@ -3307,6 +3313,7 @@ class ComposerStaticInite4c3386c369c477fd99f4b3febd374ff
         'Monolog\\SignalHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/SignalHandler.php',
         'Monolog\\Test\\TestCase' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Test/TestCase.php',
         'Monolog\\Utils' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Utils.php',
+        'Nelisys\\LaravelDompdfThaiFont\\ServiceProvider' => __DIR__ . '/..' . '/nelisys/laravel-dompdf-thai-font/src/ServiceProvider.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
         'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Laravel/CollisionServiceProvider.php',
         'NunoMaduro\\Collision\\Adapters\\Laravel\\Commands\\TestCommand' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Laravel/Commands/TestCommand.php',

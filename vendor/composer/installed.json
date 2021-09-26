@@ -2487,6 +2487,63 @@
             "install-path": "../myclabs/deep-copy"
         },
         {
+            "name": "nelisys/laravel-dompdf-thai-font",
+            "version": "v0.1.0",
+            "version_normalized": "0.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nelisys/laravel-dompdf-thai-font.git",
+                "reference": "8ab7ea4c9cd4f351ad75610fd9e9175a09caeda1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nelisys/laravel-dompdf-thai-font/zipball/8ab7ea4c9cd4f351ad75610fd9e9175a09caeda1",
+                "reference": "8ab7ea4c9cd4f351ad75610fd9e9175a09caeda1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8"
+            },
+            "time": "2021-01-17T09:43:54+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nelisys\\LaravelDompdfThaiFont\\ServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Nelisys\\LaravelDompdfThaiFont\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Supasin Sae-heng",
+                    "email": "supasin@users.noreply.github.com"
+                }
+            ],
+            "description": "Adding Thai Fonts for Laravel Dompdf",
+            "keywords": [
+                "dompdf",
+                "font",
+                "laravel",
+                "pdf",
+                "thai"
+            ],
+            "support": {
+                "issues": "https://github.com/nelisys/laravel-dompdf-thai-font/issues",
+                "source": "https://github.com/nelisys/laravel-dompdf-thai-font/tree/v0.1.0"
+            },
+            "install-path": "../nelisys/laravel-dompdf-thai-font"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "2.53.1",
             "version_normalized": "2.53.1.0",

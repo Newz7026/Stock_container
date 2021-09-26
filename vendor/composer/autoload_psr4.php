@@ -55,6 +55,7 @@ return array(
     'Phattarachai\\Thaidate\\' => array($vendorDir . '/phattarachai/thaidate/src'),
     'Opis\\Closure\\' => array($vendorDir . '/opis/closure/src'),
     'NunoMaduro\\Collision\\' => array($vendorDir . '/nunomaduro/collision/src'),
+    'Nelisys\\LaravelDompdfThaiFont\\' => array($vendorDir . '/nelisys/laravel-dompdf-thai-font/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\MimeTypeDetection\\' => array($vendorDir . '/league/mime-type-detection/src'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
