@@ -38,7 +38,7 @@ class ManagementINController extends Controller
             ->join('container_type', 'container.container_type_id', '=', 'container_type.container_type_id')
             ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type')
             ->where('container_in_out', '=', '0')
-            ->orderBy('enterprise_id', 'asc')
+            ->orderBy('manage_in_date', 'desc')
             ->get();
 
         return view('pages.container-management.stock-container-management.index', [
@@ -114,6 +114,7 @@ class ManagementINController extends Controller
             return back()->withStatus(__('Container Update successfully.'));
         }
     }
+
     public function delete_container(Request $request)
     {
         $id_del = $request->delete_id;
@@ -127,13 +128,13 @@ class ManagementINController extends Controller
     public function expose_container(Request $request)
     {
         if ($request->expose_date == "" or $request->expose_agent  == "") {
-            return back()->withStatus(__('can not Expose container!!!!!!!'));
+            return back()->withStatus(__('can not Expose container!'));
         } elseif ($request->expose_name == "" or $request->expose_tel  == "") {
-            return back()->withStatus(__('can not Expose container!!!!!!!'));
+            return back()->withStatus(__('can not Expose container!!!'));
         } elseif ($request->expose_car == "" or $request->expose_prise  == "") {
             return back()->withStatus(__('can not Expose container!!!!!!!'));
         } else {
-            $expose = DB::table('container')
+                DB::table('container')
                 ->where('container_id', $request->id_expose)
                 ->update(
                     [

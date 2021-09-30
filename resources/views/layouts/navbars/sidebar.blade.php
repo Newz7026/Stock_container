@@ -53,12 +53,12 @@ Tip 2: you can also add an image using data-image tag
                     <p>{{ __('Agents') }}</p>
                 </a>
             </li>
-            <li class="nav-item @if ($activePage == 'export-manage') active @endif">
+            {{-- <li class="nav-item @if ($activePage == 'export-manage') active @endif">
                 <a class="nav-link" href="{{ route('export') }}">
                     <i class="nc-icon nc-single-copy-04"></i>
                     <p>{{ __('Export') }}</p>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </div>

@@ -21,6 +21,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                 <table class="table table-responsive mt-2" id="datatable">
                     <thead class="table-dark">
                         <th>#</th>
+                        <th>ID</th>
                         <th>Agent</th>
                         <th>Container No.</th>
                         <th>Size</th>
@@ -37,11 +38,12 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                         @foreach ($in_data as $item)
                             <tr>
                                 <th>{{ $count += 1 }}</th>
+                                <td>00{{ $item->container_id }}</td>
                                 <td>{{ $item->enterprise_name }}</td>
                                 <td>{{ $item->container_number }}</td>
                                 <td>{{ $item->container_type }}</td>
                                 <td>{{ $item->container_grade_name }}</td>
-                                <td>{{ $item->manage_in_date }}</td>
+                                <td>{{  date('d/m/Y', strtotime($item->manage_in_date));}}</td>
                                 <td>{{ $item->manage_in_driver_name }}</td>
                                 <td>
                                     <div class="d-grid gap-2">

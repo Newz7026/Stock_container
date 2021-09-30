@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Agent;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -24,7 +26,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $container = DB::table('container')
+            ->select(DB::raw('count(container.container_id) as sum_type, container_type.container_type as typename '))
+            ->join('container_type', 'container.container_type_id', '=', 'container_type.container_type_id')
+            ->groupBy('container.container_type_id')
+            ->get();
+        
+
+        return view('dashboard', [
+            'cstr_data' => $container
+        ]);
     }
     public function export()
     {

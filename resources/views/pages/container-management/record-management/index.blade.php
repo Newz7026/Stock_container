@@ -22,6 +22,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                     <table class="table table-hover" id="datatable">
                         <thead class="table-dark">
                             <th class="fw-bold" scope="col">#</th>
+                            <th class="fw-bold" scope="col">ID</th>
                             <th class="fw-bold" scope="col">Agent</th>
                             <th class="fw-bold" scope="col">Container No.</th>
                             <th class="fw-bold" scope="col">Size</th>
@@ -37,12 +38,13 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                             @foreach ($in_data as $item)
                                 <tr>
                                     <td>{{ $count += 1 }}</td>
+                                    <td>00{{ $item->container_id }}</td>
                                     <td>{{ $item->enterprise_name }}</td>
                                     <td>{{ $item->container_number }}</td>
                                     <td>{{ $item->container_type }}</td>
                                     <td>{{ $item->container_grade_name }}</td>
-                                    <td>{{ $item->manage_in_date }}</td>
-                                    <td>{{ $item->manage_out_date }}</td>
+                                    <td>{{  date('d/m/Y', strtotime($item->manage_in_date));}}</td>
+                                    <td>{{  date('d/m/Y', strtotime($item->manage_out_date));}}</td>
                                     <td>
                                         <div class="btn-group">
                                             <button class="btn btn-info mr-1 btn-view" data-bs-toggle="modal"
