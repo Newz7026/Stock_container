@@ -12,7 +12,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                             <h4>List Container</h4>
                         </div>
                         <div class="col-2 d-grid gap-2">
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop"><i class="fas fa-plus"></i></button>
                         </div>
                     </div>
@@ -38,7 +38,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                         @foreach ($in_data as $item)
                             <tr>
                                 <th>{{ $count += 1 }}</th>
-                                <td>00{{ $item->container_id }}</td>
+                                <td>{{ $item->container_id }}</td>
                                 <td>{{ $item->enterprise_name }}</td>
                                 <td>{{ $item->container_number }}</td>
                                 <td>{{ $item->container_type }}</td>
@@ -47,7 +47,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                 <td>{{ $item->manage_in_driver_name }}</td>
                                 <td>
                                     <div class="d-grid gap-2">
-                                        <button class="btn btn-primary btn-expose" data-bs-toggle="modal"
+                                        <button class="btn btn-secondary btn-expose" data-bs-toggle="modal"
                                             data-bs-target="#staticBackdrop-expose" data-id="{{ $item->container_id }}"
                                             data-agent="{{ $item->enterprise_id }}"
                                             data-no="{{ $item->container_number }}"

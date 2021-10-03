@@ -1,5 +1,6 @@
 <script>
 
+
     $('.btn-update').click(function(){
             var id = $(this).attr('data-id')
             var agent = $(this).attr('data-agent')
@@ -37,7 +38,7 @@
 
 
         })
-        
+
 
         $('.btn-view').click(function(){
             var agent = $(this).attr('data-agent')

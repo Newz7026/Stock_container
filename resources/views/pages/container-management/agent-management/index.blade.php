@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-10">
-                            <h4>Data Agents</h4>
+
                         </div>
                         <div class="col-2 d-grid gap-2">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -21,7 +21,8 @@
                 <div class="card-body table-responsive">
                     <table class="table table-hover table-dark table-striped" id="datatable">
                         <thead class="row-12">
-                            <th class="col-1">ID</th>
+                            <th class="col-1">#</th>
+                            <th class="col-1">Code</th>
                             <th class="col-2">Name</th>
                             <th class="col-4">Address</th>
                             <th class="col-2">Phone</th>
@@ -38,6 +39,7 @@
                             @foreach ($agent_data as $item)
                                 <tr class="row-12">
                                     <td class="col-1">{{ $count += 1 }}</td>
+                                    <td class="col-2">{{ $item->enterprise_id }}</td>
                                     <td class="col-2">{{ $item->enterprise_name }}</td>
                                     <td class="col-4">{{ $item->enterprise_add }}</td>
                                     <td class="col-2">{{ $item->enterprise_phone }}</td>

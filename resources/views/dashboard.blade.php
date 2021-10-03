@@ -5,8 +5,7 @@
     <style>
         @php
             $color1 = ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', '#a0c4ff', '#bdb2ff', '#ffc6ff'];
-        @endphp
-        @foreach ($cstr_data as $x => $item).my-custom-class-{{ $item->typename }} {
+        @endphp @foreach ($cstr_data as $x => $item).my-custom-class-{{ $item->typename }} {
             fill: {{ $color1[$x] }};
         }
 
@@ -36,6 +35,9 @@
                                 @endforeach
                             </div>
                             <hr>
+                            <div class="stats">
+                                <i class="fa fa-history"></i> {{ __('Updated Reface ago') }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -56,36 +58,10 @@
                             </div>
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-history"></i> {{ __('Updated 3 minutes ago') }}
+                                <i class="fa fa-history"></i> {{ __('Updated Reface ago') }}
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('2017 Sales') }}</h4>
-                            <p class="card-category">{{ __('All products including Taxes') }}</p>
-                        </div>
-                        <div class="card-body ">
-                            <div id="chartActivity" class="ct-chart"></div>
-                        </div>
-                        <div class="card-footer ">
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Tesla Model S') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('BMW 5 Series') }}
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-check"></i> {{ __('Data information certified') }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-
                 </div>
             </div>
         </div>
@@ -129,8 +105,6 @@
                     @endforeach
                 ]
             });
-
-
         });
     </script>
 @endpush

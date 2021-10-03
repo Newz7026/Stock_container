@@ -6,30 +6,21 @@ MANAGEMENT', 'activeButton' => 'laravel'])
         <div class="container-fluid">
             <div class="row">
                 @include('alerts.success')
-                <div class="col-8">
-
-                </div>
-
-                <div class="col-4">
-                    <form action="{{ route('export-pdf') }}" method="get">
-                        @csrf
-                        <div class="row">
-                            <div class="col-9">
-                                <select class="form-select" id="inputGroupSelect04"
-                                    aria-label="Example select with button addon" name="id_export" id="id_export">
-
-                                    <option selected>Choose...</option>
-                                    @foreach ($agent_data as $item)
-                                        <option value="{{ $item->enterprise_id }}">{{ $item->enterprise_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col">
-                                <button class="btn btn-warning" type="submit"><i class="far fa-file-pdf"></i> EXPORT</button>
-                            </div>
+                <div class="col-md-12">
+                    <div class="row mb-2">
+                        <div class="col-10">
                         </div>
-                    </form>
-
+                        <div class="col-1 d-grid gap-2">
+                            <button type="button" class="btn btn-outline-dark  " data-bs-toggle="modal" data-bs-target="#export">
+                                <i class="far fa-file-pdf"></i> REPORT
+                              </button>
+                        </div>
+                        <div class="col-1 d-grid gap-2">
+                              <button type="button" class="btn btn-outline-dark  " data-bs-toggle="modal" data-bs-target="#export">
+                                <i class="far fa-file-pdf"></i> Export
+                              </button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card-body  table-responsive">
@@ -44,7 +35,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                             <th class="fw-bold" scope="col">Date Out</th>
                             <th class="fw-bold" scope="col">Long Stay</th>
                             <th class="fw-bold" scope="col">expenses</th>
-                            <th class="fw-bold" scope="col">Print</th>
+                            {{-- <th class="fw-bold" scope="col">Print</th> --}}
                             <th class="fw-bold" scope="col">Management</th>
 
                         </thead>
@@ -59,7 +50,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                 @endphp
                                 <tr>
                                     <td>{{ $count += 1 }}</td>
-                                    <td>00{{ $item->container_id }}</td>
+                                    <td>{{ $item->container_id }}</td>
                                     <td>{{ $item->enterprise_name }}</td>
                                     <td>{{ $item->container_number }}</td>
                                     <td>{{ $item->container_type }}</td>
@@ -97,11 +88,11 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                         @endif
                                     </td>
 
-                                    <td>
+                                    {{-- <td>
                                         <a class="btn btn-dark"
-                                            href="{{ route('pdf', ['id' => $item->container_id]) }}"><i
+                                            href="{{ route('pdf', ['id'=>$item->container_id]) }}"><i
                                                 class="fas fa-print"></i></a>
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         <div class="btn-group">
                                             <button class="btn btn-info mr-1 btn-view" data-bs-toggle="modal"
@@ -138,7 +129,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
             </div>
         </div>
     </div>
-
+    @include('pages.container-management.receipt-management.management.export')
     @include('pages.container-management.record-management.management.view')
     @include('pages.container-management.record-management.management.delete')
     @include('pages.container-management.record-management.script')

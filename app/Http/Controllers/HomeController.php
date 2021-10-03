@@ -31,7 +31,7 @@ class HomeController extends Controller
             ->join('container_type', 'container.container_type_id', '=', 'container_type.container_type_id')
             ->groupBy('container.container_type_id')
             ->get();
-        
+
 
         return view('dashboard', [
             'cstr_data' => $container

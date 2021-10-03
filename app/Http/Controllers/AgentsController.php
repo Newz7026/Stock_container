@@ -20,9 +20,7 @@ class AgentsController extends Controller
             return back()->withStatus(__('Can not insert successfully.'));
         } elseif ($request->tax_agent == "" or $request->tel_agent == "") {
             return back()->withStatus(__('Can not insert successfully.'));
-        } elseif ($request->fax_agent == "") {
-            return back()->withStatus(__('Can not insert successfully.'));
-        } else {
+        }  else {
             $insert_agent = new Agent();
             $insert_agent->enterprise_name = $request->name_agent;
             $insert_agent->enterprise_add = $request->add_agent;
@@ -36,12 +34,10 @@ class AgentsController extends Controller
     public function update_agent(Request $request)
     {
         if ($request->edit_name == "" or $request->edit_add == "") {
-            return back()->withStatus(__('Can 1 not update successfully.'));
+            return back()->withStatus(__('Can not update successfully.'));
         } elseif ($request->edit_tax == "" or $request->edit_phone == "") {
-            return back()->withStatus(__('Can 2 not update successfully.'));
-        } elseif ($request->edit_fax == "") {
-            return back()->withStatus(__('Can 3  not update successfully.'));
-        } else {
+            return back()->withStatus(__('Can not update successfully.'));
+        }  else {
         $id_edit = $request->edit_id;
         $insert_agent = Agent::find($id_edit);
         $insert_agent->enterprise_name = $request->edit_name;
