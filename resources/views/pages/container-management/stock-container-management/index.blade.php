@@ -36,21 +36,16 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                         @foreach ($type_data as $type)
                                             <option value="{{ $type->container_type_id }}">{{ $type->container_type }}
                                             </option>
-
                                         @endforeach
                                     @endif
                                 </select>
-
-
                             </div>
                             <div class="col-2 d-grid gap-2">
                                 <button type="submit" class="btn btn-secondary"><i
                                         class="fas fa-hourglass-start"></i></button>
                             </div>
                         </div>
-
                     </form>
-
                 </div>
                 <div class="col-md-12">
                     <div class="row mb-2">

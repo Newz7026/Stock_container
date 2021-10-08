@@ -7,6 +7,46 @@ MANAGEMENT', 'activeButton' => 'laravel'])
             <div class="row">
                 @include('alerts.success')
                 <div class="col-md-12">
+                    <form action="{{ route('recript-manage-search') }}" method="get">
+                        <div class="row ">
+                            <div class="col-6">
+                                <h4>List Container</h4>
+                            </div>
+
+                            <div class="col-2">
+                                <select class="form-select" aria-label="Default select example" name="agent_search">
+                                    <option value="" selected>------Select Agent------</option>
+                                    @if (is_array($agent_data) || is_object($agent_data))
+                                        @foreach ($agent_data as $agent)
+                                            <option value="{{ $agent->enterprise_id }}">{{ $agent->enterprise_name }}
+                                            </option>
+                                        @endforeach
+
+                                    @endif
+
+                                </select>
+
+
+                            </div>
+                            <div class="col-2">
+                                <select class="form-select" aria-label="Default select example" name="type_search">
+                                    <option value="" selected>------Select Size------</option>
+                                    @if (is_array($type_data) || is_object($type_data))
+                                        @foreach ($type_data as $type)
+                                            <option value="{{ $type->container_type_id }}">{{ $type->container_type }}
+                                            </option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="col-2 d-grid gap-2">
+                                <button type="submit" class="btn btn-secondary"><i
+                                        class="fas fa-hourglass-start"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-12">
                     <div class="row mb-2">
                         <div class="col-10">
                         </div>
@@ -138,7 +178,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                             <tr>
                                 <td> ---- </td>
                                 <td> ---- </td>
-                                <td> ---- ALL ---- </td>
+                                <td> ---- TOTAL ---- </td>
                                 <td> ---- </td>
                                 <td> ---- </td>
                                 <td> ---- </td>

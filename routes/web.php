@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/gate-in', 'App\Http\Controllers\ManagementINController@gate_in')->name('gate-in');
 
     // *************************Page Record**************************
+
     Route::get('/record-manage', 'App\Http\Controllers\ContainerController@record_manage')->name('record-manage');
     Route::post('/record-manage/insert-container', 'App\Http\Controllers\ManagementOUTController@insert_container');
     Route::post('/record-manage/update-container', 'App\Http\Controllers\ManagementOUTController@update_container');
@@ -56,6 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // *************************Page Gate Out**************************
 	Route::get('/gate-out', 'App\Http\Controllers\ManagementOUTController@gate_out')->name('gate-out');
+    Route::get('/record-manage/search', 'App\Http\Controllers\ManagementOUTController@gate_out')->name('record-manage-search');
 
     // *************************Page Export**************************
     Route::get('/export', 'App\Http\Controllers\HomeController@export')->name('export');
@@ -64,6 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // *************************Page Receipt**************************
 	Route::get('/receipt-manage', 'App\Http\Controllers\ContainerController@receipt_manage')->name('receipt-manage');
+    Route::get('/receipt-manage/recript-manage-search', 'App\Http\Controllers\ContainerController@receipt_manage')->name('recript-manage-search');
     Route::get('pdf/{id}', 'App\Http\Controllers\PDFController@pdf')->name('pdf');
 
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
