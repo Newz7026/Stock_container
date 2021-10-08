@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <h3 class="card-title" style="font-size: 18pt;">Report ->
+    <h3 class="card-title" style="font-size: 15pt;">Report ->
         @if ($name_agent)
             {{ $name_agent[0]->enterprise_name }}
         @else
@@ -41,6 +41,17 @@
 
         @endif
     </h3>
+    <h5 class="card-title" style="font-size: 14pt;">
+        Day Report =
+        @if ($today[0] != '')
+            {{ $today }}
+
+        @else
+            {{ '-' }}
+
+        @endif
+
+    </h5>
     <table border="0.1" cellpadding="2">
         <thead class="info">
             <tr bgcolor="#dddddd">

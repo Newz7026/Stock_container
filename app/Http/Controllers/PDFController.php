@@ -33,6 +33,7 @@ class PDFController extends Controller
     {
         $date = $request->start;
         $data = $request->id_export;
+        $today = date('d/m/Y');
 
         if ($data > 0) {
             if ($date > 0) {
@@ -51,7 +52,7 @@ class PDFController extends Controller
                     ->get();
 
 
-                $pdf = PDF::loadView('pages.container-management.export-container.export', ['name_agent' => $name, 'cntr' => $container]);
+                $pdf = PDF::loadView('pages.container-management.export-container.export', ['name_agent' => $name, 'cntr' => $container,'today'=>$today]);
                 return $pdf->download('export.pdf');
             } else {
                 $container = DB::table('container')
@@ -68,7 +69,7 @@ class PDFController extends Controller
                     ->get();
 
 
-                $pdf = PDF::loadView('pages.container-management.export-container.export', ['name_agent' => $name, 'cntr' => $container]);
+                $pdf = PDF::loadView('pages.container-management.export-container.export', ['name_agent' => $name, 'cntr' => $container,'today'=>$today]);
                 return $pdf->download('export.pdf');
             }
         } else {
@@ -79,6 +80,7 @@ class PDFController extends Controller
     {
         $date = $request->start;
         $data = $request->id_export;
+        $today = date('d/m/Y');
 
         if ($data > 0) {
             if ($date > 0) {
@@ -97,7 +99,7 @@ class PDFController extends Controller
                     ->get();
 
 
-                $pdf = PDF::loadView('pages.container-management.export-container.report', ['name_agent' => $name, 'cntr' => $container]);
+                $pdf = PDF::loadView('pages.container-management.export-container.report', ['name_agent' => $name, 'cntr' => $container,'today'=>$today]);
                 return $pdf->download('report.pdf');
             } else {
                 $container = DB::table('container')
@@ -114,7 +116,7 @@ class PDFController extends Controller
                     ->get();
 
 
-                $pdf = PDF::loadView('pages.container-management.export-container.report', ['name_agent' => $name, 'cntr' => $container]);
+                $pdf = PDF::loadView('pages.container-management.export-container.report', ['name_agent' => $name, 'cntr' => $container,'today'=>$today]);
                 return $pdf->download('report.pdf');
             }
         } else {

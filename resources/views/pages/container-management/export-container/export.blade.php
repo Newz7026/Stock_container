@@ -33,14 +33,25 @@
 </head>
 
 <body>
-    <h3 class="card-title" style="font-size: 18pt;"> Export ->
+    <h5 class="card-title" style="font-size: 18pt;"> Export =
         @if ($name_agent)
             {{ $name_agent[0]->enterprise_name }}
         @else
             {{ $name_agent }}
 
         @endif
-    </h3>
+    </h5>
+    <h5 class="card-title" style="font-size: 14pt;">
+        Day Export =
+        @if ($today[0] != '')
+            {{ $today }}
+
+        @else
+            {{ '-' }}
+
+        @endif
+
+    </h5>
     <table border="0.1" cellpadding="2">
         <thead class="info">
             <tr bgcolor="#dddddd">
@@ -124,7 +135,7 @@
             @endforeach
             <tr parser-repeat="[data_list]" id="row_{record_number}">
                 <td width="20px;"></td>
-                <td width="100px;">ALL -> </td>
+                <td width="100px;">Total -> </td>
                 <td></td>
                 <td width="60px;"></td>
                 <td></td>
