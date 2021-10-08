@@ -33,16 +33,15 @@
 </head>
 
 <body>
-    <h5 class="card-title" style="font-size: 18pt;"> Export =
+    <h3 class="card-title" style="font-size: 16pt;"> Export =
         @if ($name_agent)
             {{ $name_agent[0]->enterprise_name }}
         @else
             {{ $name_agent }}
 
         @endif
-    </h5>
+    </h3>
     <h5 class="card-title" style="font-size: 14pt;">
-        Day Export =
         @if ($today[0] != '')
             {{ $today }}
 

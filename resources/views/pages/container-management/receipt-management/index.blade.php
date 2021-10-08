@@ -162,11 +162,11 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                                 data-car-out="{{ $item->manage_out_car_registration }}"
                                                 data-prise-out="{{ $item->manage_out_driver_enterprise }}">
                                                 <i class="fas fa-search text-dark "></i></button>
-                                            <button class="btn btn-danger btn-delete" data-bs-toggle="modal"
+                                            {{-- <button class="btn btn-danger btn-delete" data-bs-toggle="modal"
                                                 data-bs-target="#staticBackdrop-delete"
                                                 data-id="{{ $item->container_id }}"
                                                 data-no="{{ $item->container_number }}">
-                                                <i class="fas fa-trash-alt "></i></button>
+                                                <i class="fas fa-trash-alt "></i></button> --}}
                                         </div>
                                     </td>
 

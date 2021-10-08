@@ -6,9 +6,9 @@ UPDIVISION', 'navName' => 'Dashboard', 'activeButton' => 'laravel'])
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    @php
+                    {{-- @php
                         echo $cstr_data;
-                    @endphp
+                    @endphp --}}
                     <div class="card ">
                         <div class="card-header ">
                             <h4 class="card-title">{{ __('Email Statistics') }}</h4>
