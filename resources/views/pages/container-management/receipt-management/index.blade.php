@@ -11,14 +11,16 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                         <div class="col-10">
                         </div>
                         <div class="col-1 d-grid gap-2">
-                            <button type="button" class="btn btn-outline-dark  " data-bs-toggle="modal" data-bs-target="#export">
-                                <i class="far fa-file-pdf"></i> REPORT
-                              </button>
+                            <button type="button" class="btn btn-outline-warning  " data-bs-toggle="modal"
+                                data-bs-target="#report">
+                                <i class="fas fa-file-export"></i> Report
+                            </button>
                         </div>
                         <div class="col-1 d-grid gap-2">
-                              <button type="button" class="btn btn-outline-dark  " data-bs-toggle="modal" data-bs-target="#export">
+                            <button type="button" class="btn btn-outline-success  " data-bs-toggle="modal"
+                                data-bs-target="#export">
                                 <i class="far fa-file-pdf"></i> Export
-                              </button>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -42,11 +44,31 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                         <tbody>
                             @php
                                 $count = 0;
+                                $sum_long_stay = 0;
+                                $sum_expenses = 0;
 
                             @endphp
                             @foreach ($in_data as $item)
                                 @php
-                                    $diffdays = Carbon\Carbon::parse($item->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($item->manage_out_date))));
+                                    $expenses = 0;
+                                    if ($item->manage_out_date != '') {
+                                        $diffdays = Carbon\Carbon::parse($item->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($item->manage_out_date))));
+                                    } else {
+                                        $diffdays = 0;
+                                    }
+                                    if ($diffdays > 5 && $item->manage_out_date != '') {
+                                        if ($item->container_type == '20DC') {
+                                            $expenses = $diffdays * 20;
+                                        } elseif ($item->container_type == '45HC') {
+                                            $expenses = $diffdays * 60;
+                                        } else {
+                                            $expenses = $diffdays * 40;
+                                        }
+                                    } else {
+                                        0;
+                                    }
+                                    $sum_long_stay = (int) $sum_long_stay + $diffdays;
+                                    $sum_expenses = (int) $expenses + $sum_expenses;
                                 @endphp
                                 <tr>
                                     <td>{{ $count += 1 }}</td>
@@ -72,20 +94,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($diffdays > 5 && $item->manage_out_date != '')
-                                            @if ($item->container_type == '20DC')
-                                                {{ $diffdays * 20 }}
-                                            @elseif ($item->container_type == '45HC')
-                                                {{ $diffdays * 60 }}
-                                            @else
-                                                {{ $diffdays * 40 }}
-                                            @endif
-                                        @else
-                                            {{ 0 }}
-
-
-
-                                        @endif
+                                        {{ $expenses }}
                                     </td>
 
                                     {{-- <td>
@@ -123,12 +132,28 @@ MANAGEMENT', 'activeButton' => 'laravel'])
 
                                 </tr>
                             @endforeach
+
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td> ---- </td>
+                                <td> ---- </td>
+                                <td> ---- ALL ---- </td>
+                                <td> ---- </td>
+                                <td> ---- </td>
+                                <td> ---- </td>
+                                <td> ---- </td>
+                                <td>{{ $sum_long_stay }}</td>
+                                <td>{{ $sum_expenses }}</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    @include('pages.container-management.receipt-management.management.report')
     @include('pages.container-management.receipt-management.management.export')
     @include('pages.container-management.record-management.management.view')
     @include('pages.container-management.record-management.management.delete')

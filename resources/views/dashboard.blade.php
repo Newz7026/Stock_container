@@ -1,42 +1,29 @@
-@extends('layouts.app', ['activePage' => 'dashboard', 'title' => 'Dashboard', 'navName' => 'Dashboard', 'activeButton'
-=> 'laravel'])
+@extends('layouts.app', ['activePage' => 'dashboard', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim &
+UPDIVISION', 'navName' => 'Dashboard', 'activeButton' => 'laravel'])
 
 @section('content')
-    <style>
-        @php
-            $color1 = ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', '#a0c4ff', '#bdb2ff', '#ffc6ff'];
-        @endphp @foreach ($cstr_data as $x => $item).my-custom-class-{{ $item->typename }} {
-            fill: {{ $color1[$x] }};
-        }
-
-        @endforeach
-
-    </style>
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
+                    @php
+                        echo $cstr_data;
+                    @endphp
                     <div class="card ">
                         <div class="card-header ">
-                            <h4 class="card-title">{{ __('Container Size') }}</h4>
+                            <h4 class="card-title">{{ __('Email Statistics') }}</h4>
                             <p class="card-category">{{ __('Last Campaign Performance') }}</p>
                         </div>
                         <div class="card-body ">
                             <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
                             <div class="legend">
-                                @php
-                                    $loopcount = 0;
-                                @endphp
-                                @foreach ($cstr_data as $x => $item)
-                                    @php
-                                        $loopcount += $item->sum_type;
-                                    @endphp
-                                    <i class="fa fa-circle " style="color:{{ $color1[$x] }}"></i> {{ $item->typename }}
-                                @endforeach
+                                <i class="fa fa-circle text-info"></i> {{ __('Open') }}
+                                <i class="fa fa-circle text-danger"></i> {{ __('Bounce') }}
+                                <i class="fa fa-circle text-warning"></i> {{ __('Unsubscribe') }}
                             </div>
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-history"></i> {{ __('Updated Reface ago') }}
+                                <i class="fa fa-clock-o"></i> {{ __('Campaign sent 2 days ago') }}
                             </div>
                         </div>
                     </div>
@@ -58,11 +45,171 @@
                             </div>
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-history"></i> {{ __('Updated Reface ago') }}
+                                <i class="fa fa-history"></i> {{ __('Updated 3 minutes ago') }}
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card ">
+                        <div class="card-header ">
+                            <h4 class="card-title">{{ __('2017 Sales') }}</h4>
+                            <p class="card-category">{{ __('All products including Taxes') }}</p>
+                        </div>
+                        <div class="card-body ">
+                            <div id="chartActivity" class="ct-chart"></div>
+                        </div>
+                        <div class="card-footer ">
+                            <div class="legend">
+                                <i class="fa fa-circle text-info"></i> {{ __('Tesla Model S') }}
+                                <i class="fa fa-circle text-danger"></i> {{ __('BMW 5 Series') }}
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-check"></i> {{ __('Data information certified') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="col-md-6">
+                    <div class="card  card-tasks">
+                        <div class="card-header ">
+                            <h4 class="card-title">{{ __('Tasks') }}</h4>
+                            <p class="card-category">{{ __('Backend development') }}</p>
+                        </div>
+                        <div class="card-body ">
+                            <div class="table-full-width">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="">
+                                                        <span class="form-check-sign"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{ __('Sign contract for "What are conference organizers afraid of?"') }}</td>
+                                            <td class="td-actions text-right">
+                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                                        <span class="form-check-sign"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{ __('Lines From Great Russian Literature? Or E-mails From My Boss?') }}</td>
+                                            <td class="td-actions text-right">
+                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                                        <span class="form-check-sign"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{ __('Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit') }}
+                                            </td>
+                                            <td class="td-actions text-right">
+                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" checked>
+                                                        <span class="form-check-sign"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{ __('Create 4 Invisible User Experiences you Never Knew About') }}</td>
+                                            <td class="td-actions text-right">
+                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="">
+                                                        <span class="form-check-sign"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{ __('Read "Following makes Medium better"') }}</td>
+                                            <td class="td-actions text-right">
+                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="" disabled>
+                                                        <span class="form-check-sign"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{ __('Unfollow 5 enemies from twitter') }}</td>
+                                            <td class="td-actions text-right">
+                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer ">
+                            <hr>
+                            <div class="stats">
+                                <i class="now-ui-icons loader_refresh spin"></i> {{ __('Updated 3 minutes ago') }}
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -72,39 +219,10 @@
     <script type="text/javascript">
         $(document).ready(function() {
             // Javascript method's body can be found in assets/js/demos.js
-            // demo.initDashboardPageCharts();
-            // Chartist.Pie('#chartPreferences', {
-            //     labels: [
-            @foreach ($cstr_data as $chart)
-                // {!! '"' . $loopcount * $chart->sum_type . '%", ' !!}
-                // @endforeach
-            //     ],
-            //     series: [
-            @foreach ($cstr_data as $chart)
-                // {!! $loopcount * $chart->sum_type . ', ' !!}
-                // @endforeach
-            //     ]
-            // });
+            demo.initDashboardPageCharts();
 
-            new Chartist.Pie('.ct-chart', {
-                labels: [
-                    @foreach ($cstr_data as $chart)
-                        {!! '"' . number_format((100 / $loopcount) * $chart->sum_type, 0) . '%", ' !!}
-                    @endforeach
-                ],
-                series: [
-                    @foreach ($cstr_data as $chart)
-                        {
+            demo.showNotification();
 
-                        value: {!! (100 / $loopcount) * $chart->sum_type !!},
-                        labels: {!! '"' . $loopcount * $chart->sum_type . '%" ' !!},
-                        className: 'my-custom-class-{{ $chart->typename }}',
-                        meta: 'Meta One'
-                        },
-
-                    @endforeach
-                ]
-            });
         });
     </script>
 @endpush

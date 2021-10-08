@@ -1,123 +1,123 @@
-// $().ready(function() {
-//     $sidebar = $('.sidebar');
-//     $sidebar_img_container = $sidebar.find('.sidebar-background');
+$().ready(function() {
+    $sidebar = $('.sidebar');
+    $sidebar_img_container = $sidebar.find('.sidebar-background');
 
-//     $full_page = $('.full-page');
+    $full_page = $('.full-page');
 
-//     $sidebar_responsive = $('body > .navbar-collapse');
+    $sidebar_responsive = $('body > .navbar-collapse');
 
-//     window_width = $(window).width();
+    window_width = $(window).width();
 
-//     // fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+    // fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
-//     // if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
-//     //     if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
-//     //         $('.fixed-plugin .dropdown').addClass('show');
-//     //     }
+    // if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+    //     if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+    //         $('.fixed-plugin .dropdown').addClass('show');
+    //     }
 
-//     // }
+    // }
 
-//     $('.fixed-plugin a').click(function(event) {
-//         // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-//         if ($(this).hasClass('switch-trigger')) {
-//             if (event.stopPropagation) {
-//                 event.stopPropagation();
-//             } else if (window.event) {
-//                 window.event.cancelBubble = true;
-//             }
-//         }
-//     });
+    $('.fixed-plugin a').click(function(event) {
+        // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+        if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            } else if (window.event) {
+                window.event.cancelBubble = true;
+            }
+        }
+    });
 
-//     $('.fixed-plugin .background-color span').click(function() {
-//         $(this).siblings().removeClass('active');
-//         $(this).addClass('active');
+    $('.fixed-plugin .background-color span').click(function() {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
 
-//         var new_color = $(this).data('color');
+        var new_color = $(this).data('color');
 
-//         if ($sidebar.length != 0) {
-//             $sidebar.attr('data-color', new_color);
-//         }
+        if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+        }
 
-//         if ($full_page.length != 0) {
-//             $full_page.attr('filter-color', new_color);
-//         }
+        if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+        }
 
-//         if ($sidebar_responsive.length != 0) {
-//             $sidebar_responsive.attr('data-color', new_color);
-//         }
-//     });
+        if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+        }
+    });
 
-//     $('.fixed-plugin .img-holder').click(function() {
-//         $full_page_background = $('.full-page-background');
+    $('.fixed-plugin .img-holder').click(function() {
+        $full_page_background = $('.full-page-background');
 
-//         $(this).parent('li').siblings().removeClass('active');
-//         $(this).parent('li').addClass('active');
+        $(this).parent('li').siblings().removeClass('active');
+        $(this).parent('li').addClass('active');
 
 
-//         var new_image = $(this).find("img").attr('src');
+        var new_image = $(this).find("img").attr('src');
 
-//         if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-//             $sidebar_img_container.fadeOut('fast', function() {
-//                 $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-//                 $sidebar_img_container.fadeIn('fast');
-//             });
-//         }
+        if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                $sidebar_img_container.fadeIn('fast');
+            });
+        }
 
-//         if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-//             var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+        if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
 
-//             $full_page_background.fadeOut('fast', function() {
-//                 $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-//                 $full_page_background.fadeIn('fast');
-//             });
-//         }
+            $full_page_background.fadeOut('fast', function() {
+                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                $full_page_background.fadeIn('fast');
+            });
+        }
 
-//         if ($('.switch-sidebar-image input:checked').length == 0) {
-//             var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-//             var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+        if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
 
-//             $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-//             $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-//         }
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+        }
 
-//         if ($sidebar_responsive.length != 0) {
-//             $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-//         }
-//     });
+        if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+        }
+    });
 
-//     $('.switch input').on("switchChange.bootstrapSwitch", function() {
+    $('.switch input').on("switchChange.bootstrapSwitch", function() {
 
-//         $full_page_background = $('.full-page-background');
+        $full_page_background = $('.full-page-background');
 
-//         $input = $(this);
+        $input = $(this);
 
-//         if ($input.is(':checked')) {
-//             if ($sidebar_img_container.length != 0) {
-//                 $sidebar_img_container.fadeIn('fast');
-//                 $sidebar.attr('data-image', '#');
-//             }
+        if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+                $sidebar_img_container.fadeIn('fast');
+                $sidebar.attr('data-image', '#');
+            }
 
-//             if ($full_page_background.length != 0) {
-//                 $full_page_background.fadeIn('fast');
-//                 $full_page.attr('data-image', '#');
-//             }
+            if ($full_page_background.length != 0) {
+                $full_page_background.fadeIn('fast');
+                $full_page.attr('data-image', '#');
+            }
 
-//             background_image = true;
-//         } else {
-//             if ($sidebar_img_container.length != 0) {
-//                 $sidebar.removeAttr('data-image');
-//                 $sidebar_img_container.fadeOut('fast');
-//             }
+            background_image = true;
+        } else {
+            if ($sidebar_img_container.length != 0) {
+                $sidebar.removeAttr('data-image');
+                $sidebar_img_container.fadeOut('fast');
+            }
 
-//             if ($full_page_background.length != 0) {
-//                 $full_page.removeAttr('data-image', '#');
-//                 $full_page_background.fadeOut('fast');
-//             }
+            if ($full_page_background.length != 0) {
+                $full_page.removeAttr('data-image', '#');
+                $full_page_background.fadeOut('fast');
+            }
 
-//             background_image = false;
-//         }
-//     });
-// });
+            background_image = false;
+        }
+    });
+});
 
 type = ['primary', 'info', 'success', 'warning', 'danger'];
 
@@ -196,18 +196,18 @@ demo = {
 
         Chartist.Pie('#chartPreferences', dataPreferences, optionsPreferences);
 
-        // Chartist.Pie('#chartPreferences', {
-        //     labels: ['53%', '36%', '11%'],
-        //     series: [53, 36, 11]
-        // });
+        Chartist.Pie('#chartPreferences', {
+            labels: ['53%', '36%', '11%'],
+            series: [53, 36, 11]
+        });
 
 
         var dataSales = {
-            labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             series: [
                 [287, 385, 490, 492, 554, 586, 698, 695, 752, 788, 846, 944],
                 [67, 152, 143, 240, 287, 335, 435, 437, 539, 542, 544, 647],
-                [23, 113, 67, 108, 190, 239, 307, 308, 439, 410, 410, 509]
+                [23, 113, 67, 108, 190, 239, 307, 308, 439, 410, 410, 590]
             ]
         };
 
@@ -291,87 +291,87 @@ demo = {
 
         var chartActivity = Chartist.Bar('#chartActivity', data, options, responsiveOptions);
 
-        // lbd.startAnimationForBarChart(chartActivity);
+        lbd.startAnimationForBarChart(chartActivity);
 
-        // /* ----------==========     Daily Sales Chart initialization    ==========---------- */
-        //
-        // dataDailySalesChart = {
-        //     labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-        //     series: [
-        //         [12, 17, 7, 17, 23, 18, 38]
-        //     ]
-        // };
-        //
-        // optionsDailySalesChart = {
-        //     lineSmooth: Chartist.Interpolation.cardinal({
-        //         tension: 0
-        //     }),
-        //     low: 0,
-        //     high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-        //     chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
-        // }
-        //
-        // var dailySalesChart = Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+        /* ----------==========     Daily Sales Chart initialization    ==========---------- */
 
-        // lbd.startAnimationForLineChart(dailySalesChart);
+        dataDailySalesChart = {
+            labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+            series: [
+                [12, 17, 7, 17, 23, 18, 38]
+            ]
+        };
 
-        //
-        //
-        // /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
-        //
-        // dataCompletedTasksChart = {
-        //     labels: ['12am', '3pm', '6pm', '9pm', '12pm', '3am', '6am', '9am'],
-        //     series: [
-        //         [230, 750, 450, 300, 280, 240, 200, 190]
-        //     ]
-        // };
-        //
-        // optionsCompletedTasksChart = {
-        //     lineSmooth: Chartist.Interpolation.cardinal({
-        //         tension: 0
-        //     }),
-        //     low: 0,
-        //     high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-        //     chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
-        // }
-        //
-        // var completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
-        //
-        // // start animation for the Completed Tasks Chart - Line Chart
-        // lbd.startAnimationForLineChart(completedTasksChart);
-        //
-        //
-        // /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
-        //
-        // var dataEmailsSubscriptionChart = {
-        //   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        //   series: [
-        //     [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
-        //
-        //   ]
-        // };
-        // var optionsEmailsSubscriptionChart = {
-        //     axisX: {
-        //         showGrid: false
-        //     },
-        //     low: 0,
-        //     high: 1000,
-        //     chartPadding: { top: 0, right: 5, bottom: 0, left: 0}
-        // };
-        // var responsiveOptions = [
-        //   ['screen and (max-width: 640px)', {
-        //     seriesBarDistance: 5,
-        //     axisX: {
-        //       labelInterpolationFnc: function (value) {
-        //         return value[0];
-        //       }
-        //     }
-        //   }]
-        // ];
-        // var emailsSubscriptionChart = Chartist.Bar('#emailsSubscriptionChart', dataEmailsSubscriptionChart, optionsEmailsSubscriptionChart, responsiveOptions);
-        //
-        // //start animation for the Emails Subscription Chart
-        // lbd.startAnimationForBarChart(emailsSubscriptionChart);
+        optionsDailySalesChart = {
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            low: 0,
+            high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
+        }
+
+        var dailySalesChart = Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+
+        lbd.startAnimationForLineChart(dailySalesChart);
+
+
+
+        /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
+
+        dataCompletedTasksChart = {
+            labels: ['12am', '3pm', '6pm', '9pm', '12pm', '3am', '6am', '9am'],
+            series: [
+                [230, 750, 450, 300, 280, 240, 200, 190]
+            ]
+        };
+
+        optionsCompletedTasksChart = {
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            low: 0,
+            high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
+        }
+
+        var completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
+
+        // start animation for the Completed Tasks Chart - Line Chart
+        lbd.startAnimationForLineChart(completedTasksChart);
+
+
+        /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
+
+        var dataEmailsSubscriptionChart = {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          series: [
+            [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+
+          ]
+        };
+        var optionsEmailsSubscriptionChart = {
+            axisX: {
+                showGrid: false
+            },
+            low: 0,
+            high: 1000,
+            chartPadding: { top: 0, right: 5, bottom: 0, left: 0}
+        };
+        var responsiveOptions = [
+          ['screen and (max-width: 640px)', {
+            seriesBarDistance: 5,
+            axisX: {
+              labelInterpolationFnc: function (value) {
+                return value[0];
+              }
+            }
+          }]
+        ];
+        var emailsSubscriptionChart = Chartist.Bar('#emailsSubscriptionChart', dataEmailsSubscriptionChart, optionsEmailsSubscriptionChart, responsiveOptions);
+
+        //start animation for the Emails Subscription Chart
+        lbd.startAnimationForBarChart(emailsSubscriptionChart);
 
     },
 
@@ -510,22 +510,22 @@ demo = {
         marker.setMap(map);
     },
 
-    // showNotification: function(from, align) {
-    //     color = Math.floor((Math.random() * 4) + 1);
+    showNotification: function(from, align) {
+        color = Math.floor((Math.random() * 4) + 1);
 
-    //     $.notify({
-    //         icon: "nc-icon nc-app",
-    //         message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+        $.notify({
+            icon: "nc-icon nc-app",
+            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
 
-    //     }, {
-    //         type: type[color],
-    //         timer: 8000,
-    //         placement: {
-    //             from: from,
-    //             align: align
-    //         }
-    //     });
-    // }
+        }, {
+            type: type[color],
+            timer: 8000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+    }
 
 
 

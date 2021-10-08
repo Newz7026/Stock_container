@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <h3 class="card-title" style="font-size: 18pt;"> Export ->
+    <h3 class="card-title" style="font-size: 18pt;">Report ->
         @if ($name_agent)
             {{ $name_agent[0]->enterprise_name }}
         @else
@@ -57,37 +57,15 @@
                 <th width="60px;" scope="col">Tel.</th>
                 <th scope="col">TRUCK NO.</th>
                 <th scope="col">Agent</th>
-                <th scope="col">Long Stay</th>
-                <th scope="col">expenses</th>
             </tr>
         </thead>
         <tbody>
             @php
                 $count = 0;
-                $sum_long_stay = 0;
-                $sum_expenses = 0;
             @endphp
             @foreach ($cntr as $container_data)
                 @php
-                    $expenses = 0;
-                    if ($container_data->manage_out_date != '') {
-                        $diffdays = Carbon\Carbon::parse($container_data->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($container_data->manage_out_date))));
-                    } else {
-                        $diffdays = 0;
-                    }
-                    if ($diffdays > 5 && $container_data->manage_out_date != '') {
-                        if ($container_data->container_type == '20DC') {
-                            $expenses = $diffdays * 20;
-                        } elseif ($container_data->container_type == '45HC') {
-                            $expenses = $diffdays * 60;
-                        } else {
-                            $expenses = $diffdays * 40;
-                        }
-                    } else {
-                        0;
-                    }
-                    $sum_long_stay = (int) $sum_long_stay + $diffdays;
-                    $sum_expenses = (int) $expenses + $sum_expenses;
+                    $diffdays = Carbon\Carbon::parse($container_data->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($container_data->manage_out_date))));
                 @endphp
                 <tr parser-repeat="[data_list]" id="row_{record_number}">
                     <td width="20px;">{{ $count += 1 }}</td>
@@ -103,42 +81,16 @@
                             {{ date('d/m/Y', strtotime($container_data->manage_out_date)) }}
                         @else
                             {{ '-' }}
+
                         @endif
                     </td>
                     <td>{{ $container_data->manage_out_driver_name }}</td>
                     <td width="60px;">{{ $container_data->manage_out_driver_tel }}</td>
                     <td>{{ $container_data->manage_out_car_registration }}</td>
                     <td>{{ $container_data->manage_out_driver_enterprise }}</td>
-                    <td>
-                        @if ($container_data->manage_out_date != '')
-                            {{ $diffdays }}
-                        @else
-                            {{ '-' }}
-                        @endif
-                    </td>
-                    <td>
-                        {{ $expenses }}
-
-                    </td>
                 </tr>
             @endforeach
-            <tr parser-repeat="[data_list]" id="row_{record_number}">
-                <td width="20px;"></td>
-                <td width="100px;">ALL -> </td>
-                <td></td>
-                <td width="60px;"></td>
-                <td></td>
-                <td width="60px;"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td width="60px;"></td>
-                <td>{{ $sum_long_stay }}</td>
-                <td>{{ $sum_expenses }}</td>
-            </tr>
+
         </tbody>
     </table>
 </body>

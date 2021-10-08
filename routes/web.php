@@ -37,7 +37,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/agent/delete-agent', 'App\Http\Controllers\AgentsController@delete_agent');
     Route::post('/agent/update-agent', 'App\Http\Controllers\AgentsController@update_agent');
 
-
     // *************************Page container**************************
     Route::get('/container-manage', 'App\Http\Controllers\ManagementINController@container_manage')->name('container-manage');
     Route::post('/container-manage/update-container', 'App\Http\Controllers\ManagementINController@update_container');
@@ -60,8 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
     // *************************Page Export**************************
     Route::get('/export', 'App\Http\Controllers\HomeController@export')->name('export');
     Route::get('/export/pdf', 'App\Http\Controllers\PDFController@export_agent')->name('export-pdf');
-
-
+    Route::get('/report/pdf', 'App\Http\Controllers\PDFController@report_agent')->name('report-pdf');
 
     // *************************Page Receipt**************************
 	Route::get('/receipt-manage', 'App\Http\Controllers\ContainerController@receipt_manage')->name('receipt-manage');

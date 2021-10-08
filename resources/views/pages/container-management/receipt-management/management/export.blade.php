@@ -5,8 +5,8 @@
     <br />
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Dowload Report</h5>
+            <div class="modal-header alert-success">
+                <h5 class="modal-title " id="staticBackdropLabel">Dowload Export</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('export-pdf') }}" method="get">
@@ -29,7 +29,7 @@
                     <div class="row mb-4">
                         <div class='col'>
                             <label for="exampleInputEmail1" class="form-label">Month</label>
-                            <input type="month" class="form-control" id="start" name="start" min="2020-03" value="">
+                            <input type="month" class="form-control" id="start" name="start" min="2020-03">
                         </div>
                     </div>
 
