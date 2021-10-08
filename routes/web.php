@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/agent/update-agent', 'App\Http\Controllers\AgentsController@update_agent');
 
     // *************************Page container**************************
+    Route::get('/container-manage/search', 'App\Http\Controllers\ManagementINController@container_manage')->name('container-manage-search');
     Route::get('/container-manage', 'App\Http\Controllers\ManagementINController@container_manage')->name('container-manage');
     Route::post('/container-manage/update-container', 'App\Http\Controllers\ManagementINController@update_container');
     Route::post('/container-manage/insert-container', 'App\Http\Controllers\ManagementINController@insert_container');

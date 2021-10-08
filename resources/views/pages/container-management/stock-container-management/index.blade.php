@@ -6,10 +6,56 @@ MANAGEMENT', 'activeButton' => 'laravel'])
         <div class="container-fluid">
             <div class="row">
                 @include('alerts.success')
+
                 <div class="col-md-12">
-                    <div class="row mb-4">
+                    <form action="{{ route('container-manage-search') }}" method="get">
+                        <div class="row ">
+                            <div class="col-6">
+                                <h4>List Container</h4>
+                            </div>
+
+                            <div class="col-2">
+                                <select class="form-select" aria-label="Default select example" name="agent_search">
+                                    <option value="" selected>------Select Agent------</option>
+                                    @if (is_array($agent_data) || is_object($agent_data))
+                                        @foreach ($agent_data as $agent)
+                                            <option value="{{ $agent->enterprise_id }}">{{ $agent->enterprise_name }}
+                                            </option>
+                                        @endforeach
+
+                                    @endif
+
+                                </select>
+
+
+                            </div>
+                            <div class="col-2">
+                                <select class="form-select" aria-label="Default select example" name="type_search">
+                                    <option value="" selected>------Select Size------</option>
+                                    @if (is_array($type_data) || is_object($type_data))
+                                        @foreach ($type_data as $type)
+                                            <option value="{{ $type->container_type_id }}">{{ $type->container_type }}
+                                            </option>
+
+                                        @endforeach
+                                    @endif
+                                </select>
+
+
+                            </div>
+                            <div class="col-2 d-grid gap-2">
+                                <button type="submit" class="btn btn-secondary"><i
+                                        class="fas fa-hourglass-start"></i></button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="col-md-12">
+                    <div class="row mb-2">
                         <div class="col-10">
-                            <h4>List Container</h4>
+
                         </div>
                         <div class="col-2 d-grid gap-2">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -35,69 +81,77 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                         @php
                             $count = 0;
                         @endphp
-                        @foreach ($in_data as $item)
-                            <tr>
-                                <th>{{ $count += 1 }}</th>
-                                <td>{{ $item->container_id }}</td>
-                                <td>{{ $item->enterprise_name }}</td>
-                                <td>{{ $item->container_number }}</td>
-                                <td>{{ $item->container_type }}</td>
-                                <td>{{ $item->container_grade_name }}</td>
-                                <td>{{  date('d/m/Y', strtotime($item->manage_in_date));}}</td>
-                                <td>{{ $item->manage_in_driver_name }}</td>
-                                <td>
-                                    <div class="d-grid gap-2">
-                                        <button class="btn btn-secondary btn-expose" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop-expose" data-id="{{ $item->container_id }}"
-                                            data-agent="{{ $item->enterprise_id }}"
-                                            data-no="{{ $item->container_number }}"
-                                            data-type="{{ $item->container_type }}"
-                                            data-grade="{{ $item->container_grade_name }}"
-                                            data-status="{{ $item->status }}" data-date="{{ $item->manage_in_date }}"
-                                            data-name="{{ $item->manage_in_driver_name }}"
-                                            data-tel="{{ $item->manage_in_driver_tel }}"
-                                            data-car="{{ $item->manage_in_car_registration }}"
-                                            data-prise="{{ $item->manage_in_driver_enterprise }}">
-                                            <i class="fas fa-sign-out-alt "></i></i></button>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-info mr-1 btn-view" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop-view"
-                                            data-agent="{{ $item->enterprise_name }}"
-                                            data-no="{{ $item->container_number }}"
-                                            data-type="{{ $item->container_type }}"
-                                            data-grade="{{ $item->container_grade_name }}"
-                                            data-status="{{ $item->status }}" data-date="{{ $item->manage_in_date }}"
-                                            data-name="{{ $item->manage_in_driver_name }}"
-                                            data-tel="{{ $item->manage_in_driver_tel }}"
-                                            data-car="{{ $item->manage_in_car_registration }}"
-                                            data-prise="{{ $item->manage_in_driver_enterprise }}">
-                                            <i class="fas fa-search text-dark "></i></button>
+                        @if (is_array($in_data) || is_object($in_data))
+                            @foreach ($in_data as $item)
+                                <tr>
+                                    <th>{{ $count += 1 }}</th>
+                                    <td>{{ $item->container_id }}</td>
+                                    <td>{{ $item->enterprise_name }}</td>
+                                    <td>{{ $item->container_number }}</td>
+                                    <td>{{ $item->container_type }}</td>
+                                    <td>{{ $item->container_grade_name }}</td>
+                                    <td>{{ date('d/m/Y', strtotime($item->manage_in_date)) }}</td>
+                                    <td>{{ $item->manage_in_driver_name }}</td>
+                                    <td>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-secondary btn-expose" data-bs-toggle="modal"
+                                                data-bs-target="#staticBackdrop-expose"
+                                                data-id="{{ $item->container_id }}"
+                                                data-agent="{{ $item->enterprise_id }}"
+                                                data-no="{{ $item->container_number }}"
+                                                data-type="{{ $item->container_type }}"
+                                                data-grade="{{ $item->container_grade_name }}"
+                                                data-status="{{ $item->status }}"
+                                                data-date="{{ $item->manage_in_date }}"
+                                                data-name="{{ $item->manage_in_driver_name }}"
+                                                data-tel="{{ $item->manage_in_driver_tel }}"
+                                                data-car="{{ $item->manage_in_car_registration }}"
+                                                data-prise="{{ $item->manage_in_driver_enterprise }}">
+                                                <i class="fas fa-sign-out-alt "></i></i></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-info mr-1 btn-view" data-bs-toggle="modal"
+                                                data-bs-target="#staticBackdrop-view"
+                                                data-agent="{{ $item->enterprise_name }}"
+                                                data-no="{{ $item->container_number }}"
+                                                data-type="{{ $item->container_type }}"
+                                                data-grade="{{ $item->container_grade_name }}"
+                                                data-status="{{ $item->status }}"
+                                                data-date="{{ $item->manage_in_date }}"
+                                                data-name="{{ $item->manage_in_driver_name }}"
+                                                data-tel="{{ $item->manage_in_driver_tel }}"
+                                                data-car="{{ $item->manage_in_car_registration }}"
+                                                data-prise="{{ $item->manage_in_driver_enterprise }}">
+                                                <i class="fas fa-search text-dark "></i></button>
 
 
-                                        <button class="btn btn-warning mr-1 btn-update " data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop-update" data-id="{{ $item->container_id }}"
-                                            data-agent="{{ $item->enterprise_id }}"
-                                            data-no="{{ $item->container_number }}"
-                                            data-type="{{ $item->container_type_id }}"
-                                            data-grade="{{ $item->container_grade_id }}"
-                                            data-status="{{ $item->status }}" data-date="{{ $item->manage_in_date }}"
-                                            data-name="{{ $item->manage_in_driver_name }}"
-                                            data-tel="{{ $item->manage_in_driver_tel }}"
-                                            data-car="{{ $item->manage_in_car_registration }}"
-                                            data-prise="{{ $item->manage_in_driver_enterprise }}">
-                                            <i class="far fa-edit text-dark"></i></button>
+                                            <button class="btn btn-warning mr-1 btn-update " data-bs-toggle="modal"
+                                                data-bs-target="#staticBackdrop-update"
+                                                data-id="{{ $item->container_id }}"
+                                                data-agent="{{ $item->enterprise_id }}"
+                                                data-no="{{ $item->container_number }}"
+                                                data-type="{{ $item->container_type_id }}"
+                                                data-grade="{{ $item->container_grade_id }}"
+                                                data-status="{{ $item->status }}"
+                                                data-date="{{ $item->manage_in_date }}"
+                                                data-name="{{ $item->manage_in_driver_name }}"
+                                                data-tel="{{ $item->manage_in_driver_tel }}"
+                                                data-car="{{ $item->manage_in_car_registration }}"
+                                                data-prise="{{ $item->manage_in_driver_enterprise }}">
+                                                <i class="far fa-edit text-dark"></i></button>
 
-                                        <button class="btn btn-danger btn-delete" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop-delete" data-id="{{ $item->container_id }}"
-                                            data-no="{{ $item->container_number }}">
-                                            <i class="fas fa-trash-alt "></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
+                                            <button class="btn btn-danger btn-delete" data-bs-toggle="modal"
+                                                data-bs-target="#staticBackdrop-delete"
+                                                data-id="{{ $item->container_id }}"
+                                                data-no="{{ $item->container_number }}">
+                                                <i class="fas fa-trash-alt "></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
