@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Container;
 use App\Models\Agent;
-use App\Models\container_grade;
-use App\Models\container_type;
+use App\Models\Container_grade;
+use App\Models\Container_type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use SebastianBergmann\Environment\Console;
@@ -15,8 +15,8 @@ class ManagementINController extends Controller
     public function gate_in()
     {
         $agent_data = Agent::orderby('enterprise_name', 'asc')->get();
-        $type_data = container_type::orderby('container_type_id', 'asc')->get();
-        $grade_data = container_grade::orderby('container_grade_id', 'asc')->get();
+        $type_data = Container_type::orderby('container_type_id', 'asc')->get();
+        $grade_data = Container_grade::orderby('container_grade_id', 'asc')->get();
         return view('pages.container-management.gate-in-management.index', [
             'type_data' => $type_data,
             'grade_data' => $grade_data,
@@ -52,8 +52,8 @@ class ManagementINController extends Controller
     {
         $agent_data = Agent::orderby('enterprise_name', 'asc')->get();
         $container_data = Container::orderby('enterprise_id', 'asc')->get();
-        $type_data = container_type::orderby('container_type_id', 'asc')->get();
-        $grade_data = container_grade::orderby('container_grade_id', 'asc')->get();
+        $type_data = Container_type::orderby('container_type_id', 'asc')->get();
+        $grade_data = Container_grade::orderby('container_grade_id', 'asc')->get();
 
         if ($request->agent_search != '') {
             $container = DB::table('container')

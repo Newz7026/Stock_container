@@ -16,17 +16,19 @@ class AgentsController extends Controller
     }
     public function insert_agent(Request $request)
     {
+
+
         if ($request->name_agent == "" or $request->add_agent == "") {
             return back()->withStatus(__('Can not insert successfully.'));
-        } elseif ($request->tax_agent == "" or $request->tel_agent == "") {
+        } elseif ($request->tax_agent == "") {
             return back()->withStatus(__('Can not insert successfully.'));
         }  else {
             $insert_agent = new Agent();
             $insert_agent->enterprise_name = $request->name_agent;
             $insert_agent->enterprise_add = $request->add_agent;
-            $insert_agent->enterprise_phone = $request->tax_agent;
-            $insert_agent->enterprise_fax = $request->tel_agent;
-            $insert_agent->enterprise_taxpayer = $request->fax_agent;
+            $insert_agent->enterprise_phone = $request->tel_agent;
+            $insert_agent->enterprise_fax = $request->fax_agent;
+            $insert_agent->enterprise_taxpayer = $request->tax_agent;
             $insert_agent->save();
             return back()->withStatus(__('Agent insert successfully.'));
         }
@@ -35,7 +37,7 @@ class AgentsController extends Controller
     {
         if ($request->edit_name == "" or $request->edit_add == "") {
             return back()->withStatus(__('Can not update successfully.'));
-        } elseif ($request->edit_tax == "" or $request->edit_phone == "") {
+        } elseif ($request->edit_tax == "") {
             return back()->withStatus(__('Can not update successfully.'));
         }  else {
         $id_edit = $request->edit_id;

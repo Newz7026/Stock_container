@@ -42,7 +42,6 @@
         @endif
     </h3>
     <h5 class="card-title" style="font-size: 14pt;">
-        Day Report =
         @if ($today[0] != '')
             {{ $today }}
 
