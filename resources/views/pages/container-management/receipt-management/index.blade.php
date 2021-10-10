@@ -6,7 +6,6 @@ MANAGEMENT', 'activeButton' => 'laravel'])
         <div class="container-fluid">
             <div class="row">
                 @include('alerts.success')
-                <div class="col-md-12">
                     <form action="{{ route('recript-manage-search') }}" method="get">
                         <div class="row ">
                             <div class="col-6">
@@ -40,30 +39,34 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                 </select>
                             </div>
                             <div class="col-2 d-grid gap-2">
-                                <button type="submit" class="btn btn-secondary"><i
+                                <button type="submit" class="btn btn-success"><i
                                         class="fas fa-hourglass-start"></i></button>
                             </div>
                         </div>
                     </form>
-                </div>
-                <div class="col-md-12">
-                    <div class="row mb-2">
-                        <div class="col-10">
+                    <div class="row ">
+                        <div class="col-2">
+                             <a type="button" class="btn btn-warning" href="{{url('expenses')}}" >
+                                <i class="fas fa-file-signature"></i>Edit expenses
+                            </a>
                         </div>
-                        <div class="col-1 d-grid gap-2">
-                            <button type="button" class="btn btn-outline-warning  " data-bs-toggle="modal"
-                                data-bs-target="#report">
-                                <i class="fas fa-file-export"></i> Report
-                            </button>
-                        </div>
-                        <div class="col-1 d-grid gap-2">
-                            <button type="button" class="btn btn-outline-success  " data-bs-toggle="modal"
+                        <div class="col-10 d-md-flex justify-content-md-end">
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <button type="button" class="btn btn-primary    " data-bs-toggle="modal"
+                                    data-bs-target="#report">
+                                    <i class="fas fa-file-export"></i> Report
+                                </button>
+                                <button type="button" class="btn btn-dark  " data-bs-toggle="modal"
                                 data-bs-target="#export">
                                 <i class="far fa-file-pdf"></i> Export
                             </button>
+
+                              </div>
+
+
                         </div>
+
                     </div>
-                </div>
 
                 <div class="card-body  table-responsive">
                     <table class="table table-hover" id="datatable">
@@ -86,6 +89,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                 $count = 0;
                                 $sum_long_stay = 0;
                                 $sum_expenses = 0;
+                                $today = \Carbon\Carbon::now();
 
                             @endphp
                             @foreach ($in_data as $item)
@@ -94,15 +98,15 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                     if ($item->manage_out_date != '') {
                                         $diffdays = Carbon\Carbon::parse($item->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($item->manage_out_date))));
                                     } else {
-                                        $diffdays = 0;
+                                        $diffdays = Carbon\Carbon::parse($item->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($today))));
                                     }
                                     if ($diffdays > 5 && $item->manage_out_date != '') {
                                         if ($item->container_type == '20DC') {
-                                            $expenses = $diffdays * 20;
+                                            $expenses = $diffdays * $item->price;
                                         } elseif ($item->container_type == '45HC') {
-                                            $expenses = $diffdays * 60;
+                                            $expenses = $diffdays * $item->price;
                                         } else {
-                                            $expenses = $diffdays * 40;
+                                            $expenses = $diffdays * $item->price;
                                         }
                                     } else {
                                         0;
@@ -176,13 +180,9 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td> ---- </td>
-                                <td> ---- </td>
-                                <td> ---- TOTAL ---- </td>
-                                <td> ---- </td>
-                                <td> ---- </td>
-                                <td> ---- </td>
-                                <td> ---- </td>
+
+                                <td colspan="7" class="table-active text-center"> ---- TOTAL ---- </td>
+
                                 <td>{{ $sum_long_stay }}</td>
                                 <td>{{ $sum_expenses }}</td>
                                 <td></td>

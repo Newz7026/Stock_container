@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Expenses;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -68,6 +69,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/receipt-manage', 'App\Http\Controllers\ContainerController@receipt_manage')->name('receipt-manage');
     Route::get('/receipt-manage/recript-manage-search', 'App\Http\Controllers\ContainerController@receipt_manage')->name('recript-manage-search');
     Route::get('pdf/{id}', 'App\Http\Controllers\PDFController@pdf')->name('pdf');
+
+      // *************************Page expenses**************************
+    Route::get('expenses', [Expenses::class,'view'])->name('expenses');
+    Route::post('expense/action',[Expenses::class,'edit']);
 
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 });
