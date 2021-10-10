@@ -59,7 +59,7 @@ class PDFController extends Controller
                     ->join('enterprise', 'container.enterprise_id', '=', 'enterprise.enterprise_id')
                     ->join('container_grade', 'container.container_grade_id', '=', 'container_grade.container_grade_id')
                     ->join('container_type', 'container.container_type_id', '=', 'container_type.container_type_id')
-                    ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type')
+                    ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.*')
                     ->where('container.enterprise_id', '=', $request->id_export)
                     ->get();
 

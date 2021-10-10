@@ -28,7 +28,7 @@ class ContainerController extends Controller
                 ->join('enterprise', 'container.enterprise_id', '=', 'enterprise.enterprise_id')
                 ->join('container_grade', 'container.container_grade_id', '=', 'container_grade.container_grade_id')
                 ->join('container_type', 'container.container_type_id', '=', 'container_type.container_type_id')
-                ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type','container_type.price')
+                ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type','container_type.price','container_type.lifting')
                 ->where('container.enterprise_id', '=', $request->agent_search)
                 ->orderBy('manage_in_date', 'desc')
                 ->get();
@@ -37,7 +37,7 @@ class ContainerController extends Controller
                 ->join('enterprise', 'container.enterprise_id', '=', 'enterprise.enterprise_id')
                 ->join('container_grade', 'container.container_grade_id', '=', 'container_grade.container_grade_id')
                 ->join('container_type', 'container.container_type_id', '=', 'container_type.container_type_id')
-                ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type','container_type.price')
+                ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type','container_type.price','container_type.lifting')
                 ->where('container_in_out', '=', '0')
                 ->where('container.container_type_id', '=', $request->agent_search)
                 ->orderBy('manage_in_date', 'desc')
@@ -47,7 +47,7 @@ class ContainerController extends Controller
                 ->join('enterprise', 'container.enterprise_id', '=', 'enterprise.enterprise_id')
                 ->join('container_grade', 'container.container_grade_id', '=', 'container_grade.container_grade_id')
                 ->join('container_type', 'container.container_type_id', '=', 'container_type.container_type_id')
-                ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type','container_type.price')
+                ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type','container_type.price','container_type.lifting')
                 ->orderBy('manage_in_date', 'desc')
                 ->get();
         } else {
@@ -55,7 +55,7 @@ class ContainerController extends Controller
             ->join('enterprise', 'container.enterprise_id', '=', 'enterprise.enterprise_id')
             ->join('container_grade', 'container.container_grade_id', '=', 'container_grade.container_grade_id')
             ->join('container_type', 'container.container_type_id', '=', 'container_type.container_type_id')
-            ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type','container_type.price')
+            ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type','container_type.price','container_type.lifting')
             ->orderBy('container_type_id','asc')
             ->get();
         }

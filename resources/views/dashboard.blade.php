@@ -2,13 +2,29 @@
 UPDIVISION', 'navName' => 'Dashboard', 'activeButton' => 'laravel'])
 
 @section('content')
+
+
     <div class="content">
-        <div class="container-fluid">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h1>
+                            Oops!</h1>
+                        <h2>
+                            404 Not Found</h2>
+
+                            <img src="https://c.tenor.com/NOYF3f82b_gAAAAC/programmer.gif" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    {{-- @php
+                    @php
                         echo $cstr_data;
-                    @endphp --}}
+                    @endphp
                     <div class="card ">
                         <div class="card-header ">
                             <h4 class="card-title">{{ __('Email Statistics') }}</h4>
@@ -17,13 +33,13 @@ UPDIVISION', 'navName' => 'Dashboard', 'activeButton' => 'laravel'])
                         <div class="card-body ">
                             <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
                             <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Open') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Bounce') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Unsubscribe') }}
+                                @foreach ($cstr_data as $data)
+                                <i class="fa fa-circle text-info"></i> {{ $data->typename }}
+                                @endforeach
                             </div>
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-clock-o"></i> {{ __('Campaign sent 2 days ago') }}
+                                <i class="fa fa-clock"></i> {{ __('Campaign sent 2 days ago') }}
                             </div>
                         </div>
                     </div>
@@ -75,7 +91,7 @@ UPDIVISION', 'navName' => 'Dashboard', 'activeButton' => 'laravel'])
                 </div>
 
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
 
@@ -87,6 +103,6 @@ UPDIVISION', 'navName' => 'Dashboard', 'activeButton' => 'laravel'])
 
             demo.showNotification();
 
-        });
-    </script>
-@endpush
+        }); <
+        /s>
+    @endpush

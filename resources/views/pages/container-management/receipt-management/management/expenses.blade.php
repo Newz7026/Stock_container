@@ -12,16 +12,19 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                         <thead>
                             <tr class="table-dark ">
                                 <th scope="col">
-                                    <h5 class="text-center">#</h5>
+                                    <p class="text-center">#</p>
                                 </th>
                                 <th scope="col">
-                                    <h5 class="text-center">Type</h5>
+                                    <p class="text-center">Type</p>
                                 </th>
                                 <th scope="col">
-                                    <h5 class="text-center">Price</h5>
+                                    <p class="text-center">Deposit</p>
                                 </th>
                                 <th scope="col">
-                                    <h5 class="text-center">managemant</h5>
+                                    <p class="text-center">Lifting</p>
+                                </th>
+                                <th scope="col">
+                                    <p class="text-center">managemant</p>
                                 </th>
                             </tr>
                         </thead>
@@ -40,12 +43,12 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                             </td>
                                         <td><input type="text" class="form-control text-center" name="price" id="price"
                                                 value="{{ $data_types->price }}"></td>
+                                                <td><input type="text" class="form-control text-center" name="lifting" id="lifting"
+                                                    value="{{ $data_types->lifting }}"></td>
                                         <td colspan="2">
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="submit" name="action" value="update" class="btn btn-warning"><i
                                                         class="far fa-edit"></i></button>
-                                                {{-- <button type="submit"  name="action" value="delete" class="btn btn-danger"><i
-                                                        class="far fa-trash-alt"></i></button> --}}
                                             </div>
                                         </td>
                                     </tr>

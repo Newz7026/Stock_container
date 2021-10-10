@@ -39,7 +39,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                 </select>
                             </div>
                             <div class="col-2 d-grid gap-2">
-                                <button type="submit" class="btn btn-success"><i
+                                <button type="submit" class="btn btn-secondary"><i
                                         class="fas fa-hourglass-start"></i></button>
                             </div>
                         </div>
@@ -79,7 +79,8 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                             <th class="fw-bold" scope="col">Date In</th>
                             <th class="fw-bold" scope="col">Date Out</th>
                             <th class="fw-bold" scope="col">Long Stay</th>
-                            <th class="fw-bold" scope="col">expenses</th>
+                            <th class="fw-bold" scope="col">Deposit</th>
+                            <th class="fw-bold" scope="col">Lifting</th>
                             {{-- <th class="fw-bold" scope="col">Print</th> --}}
                             <th class="fw-bold" scope="col">Management</th>
 
@@ -90,27 +91,24 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                 $sum_long_stay = 0;
                                 $sum_expenses = 0;
                                 $today = \Carbon\Carbon::now();
-
+                                $sum_lifting=0;
                             @endphp
+
                             @foreach ($in_data as $item)
                                 @php
                                     $expenses = 0;
+                                    $lifting_count = $item->lifting;
                                     if ($item->manage_out_date != '') {
                                         $diffdays = Carbon\Carbon::parse($item->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($item->manage_out_date))));
                                     } else {
                                         $diffdays = Carbon\Carbon::parse($item->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($today))));
                                     }
-                                    if ($diffdays > 5 && $item->manage_out_date != '') {
-                                        if ($item->container_type == '20DC') {
-                                            $expenses = $diffdays * $item->price;
-                                        } elseif ($item->container_type == '45HC') {
-                                            $expenses = $diffdays * $item->price;
-                                        } else {
-                                            $expenses = $diffdays * $item->price;
-                                        }
+                                    if ($diffdays > 5 ) {
+                                        $expenses = $diffdays * $item->price;
                                     } else {
                                         0;
                                     }
+                                    $sum_lifting += $lifting_count;
                                     $sum_long_stay = (int) $sum_long_stay + $diffdays;
                                     $sum_expenses = (int) $expenses + $sum_expenses;
                                 @endphp
@@ -125,20 +123,19 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                         @if ($item->manage_out_date != '')
                                             {{ date('d/m/Y', strtotime($item->manage_out_date)) }}
                                         @else
-                                            {{ '-' }}
+                                        <div class="badge bg-primary text-wrap">{{ 'In Stock' }}</div>
 
                                         @endif
+
                                     </td>
                                     <td>
-                                        @if ($item->manage_out_date != '')
                                             {{ $diffdays }}
-                                        @else
-                                            {{ '-' }}
-
-                                        @endif
                                     </td>
                                     <td>
                                         {{ $expenses }}
+                                    </td>
+                                    <td>
+                                        {{$lifting_count}}
                                     </td>
 
                                     {{-- <td>
@@ -180,12 +177,10 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                         </tbody>
                         <tfoot>
                             <tr>
+                                <td colspan="8" class="text-center"> ---- TOTAL ---- </td>
 
-                                <td colspan="7" class="table-active text-center"> ---- TOTAL ---- </td>
-
-                                <td>{{ $sum_long_stay }}</td>
                                 <td>{{ $sum_expenses }}</td>
-                                <td></td>
+                                <td>{{$sum_lifting}}</td>
                             </tr>
                         </tfoot>
                     </table>

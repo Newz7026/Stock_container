@@ -29,7 +29,7 @@
                     <div class="row mb-4">
                         <div class='col'>
                             <label for="exampleInputEmail1" class="form-label">Month</label>
-                            <input type="month" class="form-control" id="start" name="start" min="2020-03">
+                            <input type="date" class="form-control" id="start" name="start" min="2020-03">
                         </div>
                     </div>
 

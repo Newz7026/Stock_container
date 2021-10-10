@@ -40,17 +40,8 @@
             {{ $name_agent }}
 
         @endif
+        ( {{ $today }} )
     </h3>
-    <h5 class="card-title" style="font-size: 14pt;">
-        @if ($today[0] != '')
-            {{ $today }}
-
-        @else
-            {{ '-' }}
-
-        @endif
-
-    </h5>
     <table border="0.1" cellpadding="2">
         <thead class="info">
             <tr bgcolor="#dddddd">
