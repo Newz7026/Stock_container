@@ -27,7 +27,7 @@
                     <div class="row mt-4">
                         <div class="col">
                             <label for="exampleFormControlInput1" class="form-label">Tax ID.</label>
-                            <input type="text" class="form-control" id="edit_phone" name="edit_phone">
+                            <input type="text" class="form-control" id="edit_phone" name="edit_phone" maxlength="13">
                         </div>
                     </div>
 

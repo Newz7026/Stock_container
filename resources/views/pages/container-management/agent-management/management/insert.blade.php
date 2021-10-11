@@ -30,7 +30,7 @@
                     <div class="row mt-4">
                         <div class="col">
                             <label for="exampleFormControlInput1" class="form-label">Tax ID.</label>
-                            <input type="text" class="form-control" id="tax_agent" name="tax_agent"
+                            <input type="text" class="form-control" id="tax_agent" name="tax_agent" maxlength="13"
                                 placeholder="tax id">
                         </div>
                     </div>
