@@ -62,30 +62,36 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                 <table class="table table-responsive mt-2" id="datatable">
                     <thead class="table-dark">
                         <th>#</th>
-                        <th>ID</th>
                         <th>Agent</th>
                         <th>Container No.</th>
                         <th>Size</th>
                         <th>Grade</th>
                         <th>Date In</th>
+                        <th>Long Stay</th>
                         <th>imported by</th>
                         <th>Get out</th>
                         <th>manage</th>
                     </thead>
-                    <tbody>
+                    <tbody >
                         @php
                             $count = 0;
+                            $today = \Carbon\Carbon::now();
                         @endphp
                         @if (is_array($in_data) || is_object($in_data))
                             @foreach ($in_data as $item)
+                                @php
+                                    $diffdays = Carbon\Carbon::parse($item->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($today))));
+                                @endphp
                                 <tr>
                                     <th>{{ $count += 1 }}</th>
-                                    <td>{{ $item->container_id }}</td>
-                                    <td>{{ $item->enterprise_name }}</td>
+                                    <td><span class="d-inline-block text-truncate"
+                                            style="max-width: 100px;">{{ $item->enterprise_name }}</span></td>
                                     <td>{{ $item->container_number }}</td>
                                     <td>{{ $item->container_type }}</td>
                                     <td>{{ $item->container_grade_name }}</td>
+
                                     <td>{{ date('d/m/Y', strtotime($item->manage_in_date)) }}</td>
+                                    <td>{{ $diffdays }}</td>
                                     <td>{{ $item->manage_in_driver_name }}</td>
                                     <td>
                                         <div class="d-grid gap-2">

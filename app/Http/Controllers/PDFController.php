@@ -33,7 +33,7 @@ class PDFController extends Controller
     {
         $date = $request->start;
         $data = $request->id_export;
-        $today = date('d/m/Y');
+        $today = \Carbon\Carbon::now();
 
         if ($data > 0) {
             if ($date > 0) {
@@ -53,7 +53,7 @@ class PDFController extends Controller
 
 
                 $pdf = PDF::loadView('pages.container-management.export-container.export', ['name_agent' => $name, 'cntr' => $container,'today'=>$today]);
-                return $pdf->download('export.pdf');
+                return $pdf->download($today.'-export.pdf');
             } else {
                 $container = DB::table('container')
                     ->join('enterprise', 'container.enterprise_id', '=', 'enterprise.enterprise_id')
@@ -70,7 +70,7 @@ class PDFController extends Controller
 
 
                 $pdf = PDF::loadView('pages.container-management.export-container.export', ['name_agent' => $name, 'cntr' => $container,'today'=>$today]);
-                return $pdf->download('export.pdf');
+                return $pdf->download($today.'-export.pdf');
             }
         } else {
             return back()->withStatus(__("Can't Export fill, data is null!!!."));
@@ -80,7 +80,7 @@ class PDFController extends Controller
     {
         $date = $request->start;
         $data = $request->id_export;
-        $today = date('d/m/Y');
+        $today = \Carbon\Carbon::now();
 
         if ($data > 0) {
             if ($date > 0) {
@@ -100,7 +100,7 @@ class PDFController extends Controller
 
 
                 $pdf = PDF::loadView('pages.container-management.export-container.report', ['name_agent' => $name, 'cntr' => $container,'today'=>$today]);
-                return $pdf->download('report.pdf');
+                return $pdf->download($today.'-report.pdf');
             } else {
                 $container = DB::table('container')
                     ->join('enterprise', 'container.enterprise_id', '=', 'enterprise.enterprise_id')
@@ -117,7 +117,7 @@ class PDFController extends Controller
 
 
                 $pdf = PDF::loadView('pages.container-management.export-container.report', ['name_agent' => $name, 'cntr' => $container,'today'=>$today]);
-                return $pdf->download('report.pdf');
+                return $pdf->download($today.'-report.pdf');
             }
         } else {
             return back()->withStatus(__("Can't Export fill, data is null!!!."));

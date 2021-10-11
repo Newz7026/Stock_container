@@ -2,6 +2,7 @@
 MANAGEMENT', 'activeButton' => 'laravel'])
 
 @section('content')
+
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -12,7 +13,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                 <h4>List Container</h4>
                             </div>
 
-                            <div class="col-2">
+                            <div class="col-2 text-truncate">
                                 <select class="form-select" aria-label="Default select example" name="agent_search">
                                     <option value="" selected>------Select Agent------</option>
                                     @if (is_array($agent_data) || is_object($agent_data))
@@ -72,7 +73,6 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                     <table class="table table-hover" id="datatable">
                         <thead class="table-dark">
                             <th class="fw-bold" scope="col">#</th>
-                            <th class="fw-bold" scope="col">ID</th>
                             <th class="fw-bold" scope="col">Agent</th>
                             <th class="fw-bold" scope="col">Container No.</th>
                             <th class="fw-bold" scope="col">Size</th>
@@ -103,10 +103,10 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                     } else {
                                         $diffdays = Carbon\Carbon::parse($item->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($today))));
                                     }
-                                    if ($diffdays > 5 ) {
+                                    if ($diffdays >= 9 ) {
                                         $expenses = $diffdays * $item->price;
                                     } else {
-                                        0;
+                                        $expenses = 0;
                                     }
                                     $sum_lifting += $lifting_count;
                                     $sum_long_stay = (int) $sum_long_stay + $diffdays;
@@ -114,8 +114,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                 @endphp
                                 <tr>
                                     <td>{{ $count += 1 }}</td>
-                                    <td>{{ $item->container_id }}</td>
-                                    <td>{{ $item->enterprise_name }}</td>
+                                    <td><span class="d-inline-block text-truncate" style="max-width: 100px;">{{ $item->enterprise_name }}</span></td>
                                     <td>{{ $item->container_number }}</td>
                                     <td>{{ $item->container_type }}</td>
                                     <td>{{ date('d/m/Y', strtotime($item->manage_in_date)) }}</td>
@@ -177,7 +176,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="8" class="text-center"> ---- TOTAL ---- </td>
+                                <td colspan="7" class="text-center"> ---- TOTAL ---- </td>
 
                                 <td>{{ $sum_expenses }}</td>
                                 <td>{{$sum_lifting}}</td>

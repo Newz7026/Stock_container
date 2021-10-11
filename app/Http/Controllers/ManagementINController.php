@@ -31,13 +31,14 @@ class ManagementINController extends Controller
         $type_data = Container_type::orderby('container_type_id', 'asc')->get();
         $grade_data = Container_grade::orderby('container_grade_id', 'asc')->get();
 
-        if ($request->agent_search != '') {
+        if ($request->agent_search != '' && $request->type_search != '') {
             $container = DB::table('container')
                 ->join('enterprise', 'container.enterprise_id', '=', 'enterprise.enterprise_id')
                 ->join('container_grade', 'container.container_grade_id', '=', 'container_grade.container_grade_id')
                 ->join('container_type', 'container.container_type_id', '=', 'container_type.container_type_id')
                 ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type')
                 ->where('container_in_out', '=', '0')
+                ->where('container.container_type_id', '=', $request->type_search)
                 ->where('container.enterprise_id', '=', $request->agent_search)
                 ->orderBy('manage_in_date', 'desc')
                 ->get();
@@ -48,16 +49,17 @@ class ManagementINController extends Controller
                 ->join('container_type', 'container.container_type_id', '=', 'container_type.container_type_id')
                 ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type')
                 ->where('container_in_out', '=', '0')
-                ->where('container.container_type_id', '=', $request->agent_search)
+                ->where('container.container_type_id', '=', $request->type_search)
                 ->orderBy('manage_in_date', 'desc')
                 ->get();
-        } elseif ($request->type_search != '' || $request->agent_search != '') {
+        } elseif ($request->agent_search != '') {
             $container = DB::table('container')
                 ->join('enterprise', 'container.enterprise_id', '=', 'enterprise.enterprise_id')
                 ->join('container_grade', 'container.container_grade_id', '=', 'container_grade.container_grade_id')
                 ->join('container_type', 'container.container_type_id', '=', 'container_type.container_type_id')
                 ->select('container.*', 'container_grade.container_grade_name', 'enterprise.enterprise_name', 'container_type.container_type')
                 ->where('container_in_out', '=', '0')
+                ->where('container.enterprise_id', '=', $request->agent_search)
                 ->orderBy('manage_in_date', 'desc')
                 ->get();
         } else {

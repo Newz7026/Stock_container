@@ -22,7 +22,6 @@
                     <table class="table table-hover table-dark table-striped" id="datatable">
                         <thead class="row-12">
                             <th class="col-1">#</th>
-                            <th class="col-1">Code</th>
                             <th class="col-2">Name</th>
                             <th class="col-4">Address</th>
                             <th class="col-2">Phone</th>
@@ -39,8 +38,7 @@
                             @foreach ($agent_data as $item)
                                 <tr class="row-12">
                                     <td class="col-1">{{ $count += 1 }}</td>
-                                    <td class="col-2">{{ $item->enterprise_id }}</td>
-                                    <td class="col-2">{{ $item->enterprise_name }}</td>
+                                    <td class="col-2"><span class="d-inline-block text-truncate" style="max-width: 100px;">{{ $item->enterprise_name }}</span></td>
                                     <td class="col-4">{{ $item->enterprise_add }}</td>
                                     <td class="col-2">{{ $item->enterprise_phone }}</td>
                                     <td class="col-2">{{ $item->enterprise_fax }}</td>

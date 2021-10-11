@@ -58,15 +58,17 @@
                 <th width="60px;" scope="col">Tel.</th>
                 <th scope="col">TRUCK NO.</th>
                 <th scope="col">Agent</th>
+                <th scope="col">Long Stay</th>
             </tr>
         </thead>
         <tbody>
             @php
                 $count = 0;
+                $today = \Carbon\Carbon::now();
             @endphp
             @foreach ($cntr as $container_data)
                 @php
-                    $diffdays = Carbon\Carbon::parse($container_data->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($container_data->manage_out_date))));
+                    $diffdays = Carbon\Carbon::parse($container_data->manage_in_date)->diffInDays(Carbon\Carbon::parse(date('d-m-Y', strtotime($today))));
                 @endphp
                 <tr parser-repeat="[data_list]" id="row_{record_number}">
                     <td width="20px;">{{ $count += 1 }}</td>
@@ -89,6 +91,7 @@
                     <td width="60px;">{{ $container_data->manage_out_driver_tel }}</td>
                     <td>{{ $container_data->manage_out_car_registration }}</td>
                     <td>{{ $container_data->manage_out_driver_enterprise }}</td>
+                    <td>{{ $diffdays }}</td>
                 </tr>
             @endforeach
 
