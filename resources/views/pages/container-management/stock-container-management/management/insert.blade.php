@@ -55,22 +55,24 @@
                     </div>
 
                     <div class="row  mt-4">
-                        <div class="col-3">
+                        <div class="col-6">
                             <label for="exampleFormControlInput1" class="form-label">Driver Name</label>
                             <input type="text" class="form-control" id="dri_in_name" name="dri_in_name"
                                             placeholder="Driver Name">
                         </div>
-                        <div class="col-3">
+                        <div class="col-6">
                             <label for="exampleFormControlInput1" class="form-label">Driver Tel.</label>
                             <input type="text" class="form-control" id="dri_in_tel" name="dri_in_tel"
                                             placeholder="Driver Tel.">
                         </div>
-                        <div class="col-3">
+                    </div>
+                        <div class="row  mt-4">
+                        <div class="col-6">
                             <label for="exampleFormControlInput1" class="form-label">Registration</label>
                             <input type="text" class="form-control" id="dri_in_regis" name="dri_in_regis"
                             placeholder="Registration">
                         </div>
-                        <div class="col-3">
+                        <div class="col-6">
                             <label for="exampleFormControlInput1" class="form-label">Enterprise</label>
                             <input type="text" class="form-control" id="dri_in_prise" name="dri_in_prise"
                             placeholder="Enterprise">

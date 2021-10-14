@@ -72,19 +72,19 @@
                         <div class="alert alert-success  row">
                             <label for="" class="form-label fs-4">Get In</label>
 
-                            <div class="col-3 ">
+                            <div class="col-6">
                                 <label for="exampleInputPassword1" class="form-label">Driver Name</label>
                                 <input type="text" class="form-control" id="update_name" name="update_name">
                             </div>
-                            <div class="col-3 ">
+                            <div class="col-6 ">
                                 <label for="exampleInputPassword1" class="form-label">Driver Tel.</label>
                                 <input type="text" class="form-control" id="update_tel" name="update_tel">
                             </div>
-                            <div class="col-3">
+                            <div class="col-6">
                                 <label for="exampleInputPassword1" class="form-label">Registration</label>
                                 <input type="text" class="form-control" id="update_car" name="update_car">
                             </div>
-                            <div class="col-3">
+                            <div class="col-6">
                                 <label for="exampleInputPassword1" class="form-label">Enterprise</label>
                                 <input type="text" class="form-control" id="update_prise" name="update_prise">
                             </div>
@@ -92,19 +92,19 @@
                         <div class="alert alert-danger row">
                             <label for="" class="form-label fs-4">Get Out</label>
 
-                            <div class="col-3 ">
+                            <div class="col-6 ">
                                 <label for="exampleInputPassword1" class="form-label">Driver Name</label>
                                 <input type="text" class="form-control" id="update_name_out" name="update_name_out">
                             </div>
-                            <div class="col-3">
+                            <div class="col-6">
                                 <label for="exampleInputPassword1" class="form-label">Driver Tel.</label>
                                 <input type="text" class="form-control" id="update_tel_out" name="update_tel_out">
                             </div>
-                            <div class="col-3 ">
+                            <div class="col-6 ">
                                 <label for="exampleInputPassword1" class="form-label">Registration</label>
                                 <input type="text" class="form-control" id="update_car_out" name="update_car_out">
                             </div>
-                            <div class="col-3 ">
+                            <div class="col-6 ">
                                 <label for="exampleInputPassword1" class="form-label">Enterprise</label>
                                 <input type="text" class="form-control" id="update_prise_out" name="update_prise_out">
                             </div>

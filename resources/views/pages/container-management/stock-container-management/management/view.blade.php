@@ -37,19 +37,19 @@
                             <input type="text" class="form-control" id="view_status">
                         </div>
 
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Driver Name</label>
                             <input type="text" class="form-control" id="view_name">
                         </div>
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Driver Tel.</label>
                             <input type="text" class="form-control" id="view_tel">
                         </div>
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Registration</label>
                             <input type="text" class="form-control" id="view_car">
                         </div>
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Enterprise</label>
                             <input type="text" class="form-control" id="view_prise">
                         </div>

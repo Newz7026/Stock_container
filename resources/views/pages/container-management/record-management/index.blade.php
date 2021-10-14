@@ -67,6 +67,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                             <th class="fw-bold" scope="col">Size</th>
                             <th class="fw-bold" scope="col">Grade</th>
                             <th class="fw-bold" scope="col">Date Out</th>
+                            <th class="fw-bold" scope="col">Shipper Out</th>
                             <th class="fw-bold" scope="col">Get Out by</th>
                             <th class="fw-bold" scope="col">Management</th>
                         </thead>
@@ -82,7 +83,9 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                                     <td>{{ $item->container_type }}</td>
                                     <td>{{ $item->container_grade_name }}</td>
                                     <td>{{  date('d/m/Y', strtotime($item->manage_out_date));}}</td>
+                                    <td>{{  $item->manage_out_driver_enterprise}}</td>
                                     <td>{{  $item->manage_out_driver_name}}</td>
+
                                     <td>
                                         <div class="btn-group">
                                             <button class="btn btn-info mr-1 btn-view" data-bs-toggle="modal"

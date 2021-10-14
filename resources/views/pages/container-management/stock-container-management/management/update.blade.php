@@ -58,19 +58,19 @@
                             <textarea type="text" class="form-control" id="update_status" name="update_status"></textarea>
                         </div>
 
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Driver Name</label>
                             <input type="text" class="form-control" id="update_name" name="update_name">
                         </div>
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Driver Tel.</label>
                             <input type="text" class="form-control" id="update_tel" name="update_tel">
                         </div>
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Registration</label>
                             <input type="text" class="form-control" id="update_car" name="update_car">
                         </div>
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Enterprise</label>
                             <input type="text" class="form-control" id="update_prise" name="update_prise">
                         </div>

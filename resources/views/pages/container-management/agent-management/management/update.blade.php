@@ -27,14 +27,14 @@
                     <div class="row mt-4">
                         <div class="col">
                             <label for="exampleFormControlInput1" class="form-label">Tax ID.</label>
-                            <input type="text" class="form-control" id="edit_phone" name="edit_phone" maxlength="13">
+                            <input type="text" class="form-control" id="edit_fax" name="edit_fax" maxlength="13">
                         </div>
                     </div>
 
                     <div class="row mt-4">
                         <div class="col">
                             <label for="exampleFormControlInput1" class="form-label">Tel.</label>
-                            <input type="text" class="form-control" id="edit_fax" name="edit_fax">
+                            <input type="text" class="form-control" id="edit_phone" name="edit_phone">
                         </div>
                         <div class="col">
                             <label for="exampleFormControlInput1" class="form-label">Fax</label>

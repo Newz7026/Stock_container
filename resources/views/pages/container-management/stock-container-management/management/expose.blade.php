@@ -46,19 +46,19 @@
                             <textarea type="text" class="form-control" id="expose_status" name="expose_status"></textarea>
                         </div>
 
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Driver Name</label>
                             <input type="text" class="form-control" name="expose_name">
                         </div>
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Driver Tel.</label>
                             <input type="text" class="form-control" name="expose_tel">
                         </div>
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Registration</label>
                             <input type="text" class="form-control"  name="expose_car">
                         </div>
-                        <div class="col mb-2">
+                        <div class="col-6 mb-2">
                             <label for="exampleInputPassword1" class="form-label">Enterprise</label>
                             <input type="text" class="form-control"  name="expose_prise">
                         </div>

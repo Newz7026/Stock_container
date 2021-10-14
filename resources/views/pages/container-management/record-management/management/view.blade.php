@@ -46,19 +46,19 @@
 
                         <div class="alert alert-success  row">
                             <label for="" class="form-label fs-4">Get In</label>
-                            <div class="col-3">
+                            <div class="col-6">
                                 <label for="exampleInputPassword1" class="form-label">Driver Name</label>
                                 <input type="text" class="form-control" id="view_name">
                             </div>
-                            <div class="col-3 ">
+                            <div class="col-6 ">
                                 <label for="exampleInputPassword1" class="form-label">Driver Tel.</label>
                                 <input type="text" class="form-control" id="view_tel">
                             </div>
-                            <div class="col-3 ">
+                            <div class="col-6 ">
                                 <label for="exampleInputPassword1" class="form-label">Registration</label>
                                 <input type="text" class="form-control" id="view_car">
                             </div>
-                            <div class="col-3">
+                            <div class="col-6">
                                 <label for="exampleInputPassword1" class="form-label">Enterprise</label>
                                 <input type="text" class="form-control" id="view_prise">
                             </div>
@@ -66,19 +66,19 @@
 
                         <div class="alert alert-danger row">
                             <label for="" class="form-label fs-4">Get Out</label>
-                            <div class="col-3">
+                            <div class="col-6">
                                 <label for="exampleInputPassword1" class="form-label">Driver Name</label>
                                 <input type="text" class="form-control" id="view_name_out">
                             </div>
-                            <div class="col-3 ">
+                            <div class="col-6 ">
                                 <label for="exampleInputPassword1" class="form-label">Driver Tel.</label>
                                 <input type="text" class="form-control" id="view_tel_out">
                             </div>
-                            <div class="col-3 ">
+                            <div class="col-6 ">
                                 <label for="exampleInputPassword1" class="form-label">Registration</label>
                                 <input type="text" class="form-control" id="view_car_out">
                             </div>
-                            <div class="col-3">
+                            <div class="col-6">
                                 <label for="exampleInputPassword1" class="form-label">Enterprise</label>
                                 <input type="text" class="form-control" id="view_prise_out">
                             </div>

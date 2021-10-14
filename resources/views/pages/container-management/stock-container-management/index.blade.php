@@ -68,7 +68,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
                         <th>Grade</th>
                         <th>Date In</th>
                         <th>Long Stay</th>
-                        <th>imported by</th>
+                        <th>Shipper In</th>
                         <th>Get out</th>
                         <th>manage</th>
                     </thead>
@@ -92,7 +92,7 @@ MANAGEMENT', 'activeButton' => 'laravel'])
 
                                     <td>{{ date('d/m/Y', strtotime($item->manage_in_date)) }}</td>
                                     <td>{{ $diffdays }}</td>
-                                    <td>{{ $item->manage_in_driver_name }}</td>
+                                    <td>{{ $item->manage_in_driver_enterprise }}</td>
                                     <td>
                                         <div class="d-grid gap-2">
                                             <button class="btn btn-secondary btn-expose" data-bs-toggle="modal"
